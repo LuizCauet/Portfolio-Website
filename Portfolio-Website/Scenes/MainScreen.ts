@@ -8,9 +8,11 @@ export default class MainScene extends Phaser.Scene {
   preload() {
     // Load assets here later, e.g. this.load.image("dot", "dot.png")
     this.load.image('particle', '/star.svg');
+    this.load.image('MC', '/assets/Character.jpg');
   }
 
   create() {
+    console.log("MainScene Started");
     const dot = this.add.circle(160, 200, 2, 0xffffff); // x, y, radius, color
 
     const emitter = this.add.particles(0, 0, 'particle');
@@ -35,11 +37,17 @@ export default class MainScene extends Phaser.Scene {
       duration: 2000,
       ease: "power3",
       onComplete: () => {
+        dot.setAlpha(0);
         this.cameras.main.flash(500, 255, 255, 255); // 500ms White flash
         this.cameras.main.shake(300, 0.01); // 300ms screen shake
-        dot.setAlpha(0);
+
+        const character = this.add.image(160, 100, 'MC')
+          .setOrigin(0.5, 0.5)
+          .setScale(0.2);
       }
     });
+
+      
   }
 
   update() {

@@ -16,7 +16,7 @@ export default class Prompt extends Phaser.Scene {
         this.tweens.add({
             targets: areYouSure,
             alpha: 1,
-            duration: 1000,
+            duration: 5000,
             ease: "linear",
         });
 
@@ -39,9 +39,9 @@ export default class Prompt extends Phaser.Scene {
 
         this.tweens.add({
         targets: [this.yes, this.no, this.noBlock],
-        alpha: 1,
-        delay: 1000,
-        duration: 2000,
+        alpha: 0.8,
+        delay: 2000,
+        duration: 5000,
         ease: "linear",
      });
     }
