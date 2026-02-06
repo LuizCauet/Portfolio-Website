@@ -25,7 +25,7 @@ export default class Prompt extends Phaser.Scene {
             .setInteractive( {useHandCursor: true} )
             .on('pointerover', () => this.enterButtonHoverState() )
             .on('pointerout', () => this.enterButtonRestState() )
-            .on('pointerdown', () => this.switchToScene("MainScene") );
+            .on('pointerdown', () => this.switchToScene("Standard") );
 
         this.no = this.add.text(180, 110, 'NO', {color: '#fff'})
             .setAlpha(0);
