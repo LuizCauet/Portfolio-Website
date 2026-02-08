@@ -43,6 +43,22 @@ a {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.5px;
+  transition: opacity 0.3s ease;
+}
+
+.page.home .logo {
+  opacity: 0;
+}
+
+.page.home.scrolled .logo {
+  opacity: 1;
+}
+
+@media (min-width: 481px) {
+  .page.home .logo {
+    opacity: 1;
+    transition: none;
+  }
 }
 
 .nav-links {
@@ -54,6 +70,37 @@ a {
 
 .nav-links a:hover {
   color: #ffffff;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 20;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: #f5f5ff;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
 }
 
 .button {
@@ -73,6 +120,10 @@ a {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: none;
+}
+
+.button-text-short {
+  display: none;
 }
 
 .button.ghost {
@@ -329,6 +380,10 @@ main {
   transform: scale(1.05);
 }
 
+.project-card::after {
+  content: none;
+}
+
 .project-overlay {
   position: absolute;
   bottom: 0;
@@ -401,26 +456,81 @@ main {
 }
 
 .contact {
-  padding-bottom: 80px;
+  padding: 50px 0 0 0;
 }
 
-.contact-card {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+.contact-divider {
+  width: 100%;
+  max-width: 600px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 24px auto 0;
+}
+
+.contact-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact-title {
+  font-size: clamp(32px, 4vw, 42px);
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #f5f5ff;
+}
+
+.contact-email {
+  font-size: clamp(18px, 3vw, 24px);
+  margin: 0;
+}
+
+.contact-email a {
+  color: #7c4dff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-email a:hover {
+  color: #9b6fff;
+}
+
+.contact-phone {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 12px 0;
+}
+
+.contact-location {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 12px 0;
+}
+
+.social-links {
+  display: flex;
   gap: 24px;
-  padding: 28px;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 8px;
 }
 
-.contact-card a {
-  color: #bfa9ff;
+.social-links a {
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-links a:hover {
+  color: #7c4dff;
+  transform: translateY(-2px);
 }
 
 .footer {
   text-align: center;
-  padding: 40px 24px 60px;
+  padding: 20px 24px 60px;
   color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
 }
@@ -601,24 +711,79 @@ main {
 @media (max-width: 900px) {
   .nav {
     padding: 16px clamp(24px, 6vw, 80px);
-    flex-wrap: wrap;
-    gap: 16px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
   }
 
-  .nav-links {
-    flex-wrap: wrap;
-    gap: 16px;
-    order: 3;
-    width: 100%;
+  .project-card::after {
+    content: "→";
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    color: rgba(124, 77, 255, 0.9);
+    font-size: 20px;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .page.scrolled .project-card.is-visible {
+    box-shadow: 0 0 40px rgba(124, 77, 255, 0.45), 0 20px 40px rgba(0, 0, 0, 0.35);
+    border-color: rgba(124, 77, 255, 0.8);
+  }
+
+  .page.scrolled .project-card.is-visible::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hamburger {
+    display: flex;
+    order: 0;
+    justify-self: start;
   }
 
   .logo {
+    order: 1;
+    text-align: center;
     font-size: 18px;
+    justify-self: center;
   }
 
   .button.outline {
     padding: 10px 16px;
     font-size: 13px;
+    order: 2;
+    justify-self: end;
+  }
+
+  .button-text-full {
+    display: none;
+  }
+
+  .button-text-short {
+    display: inline;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(11, 11, 18, 0.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 16px clamp(24px, 6vw, 80px);
+    flex-direction: column;
+    gap: 16px;
+    z-index: 15;
+  }
+
+  .nav-links.active {
+    display: flex;
   }
 
   main {
@@ -631,8 +796,8 @@ main {
   }
 
   .scroll-indicator {
-    bottom: 20px;
-    font-size: 11px;
+    bottom: 12px;
+    font-size: 10px;
   }
 
   .scroll-arrow {
@@ -733,14 +898,29 @@ main {
     padding-top: 12px;
   }
 
-  .contact-card {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 20px;
+  .contact-divider {
+    max-width: 90%;
+    margin-top: 36px;
   }
 
-  .contact-card h3 {
-    font-size: 16px;
+  .contact-title {
+    font-size: clamp(28px, 5vw, 36px);
+  }
+
+  .contact-email {
+    font-size: 18px;
+  }
+
+  .contact-phone {
+    font-size: 14px;
+  }
+
+  .contact-location {
+    font-size: 14px;
+  }
+
+  .social-links {
+    gap: 16px;
   }
 
   .project-cards {
@@ -813,25 +993,22 @@ main {
 
 @media (max-width: 480px) {
   .nav {
-    flex-direction: column;
     padding: 12px clamp(16px, 4vw, 24px);
+  }
+
+  .nav-links {
+    padding: 16px clamp(16px, 4vw, 24px);
     gap: 12px;
+    font-size: 13px;
   }
 
   .logo {
     font-size: 16px;
   }
 
-  .nav-links {
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-    font-size: 13px;
-  }
-
   .button.outline {
-    width: 100%;
-    justify-content: center;
+    font-size: 12px;
+    padding: 8px 14px;
   }
 
   main {
@@ -840,6 +1017,15 @@ main {
 
   .hero {
     padding: 20px 0 30px;
+    min-height: auto;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  .scroll-arrow {
+    font-size: 18px;
   }
 
   .hero-content h1 {
@@ -855,8 +1041,7 @@ main {
   }
 
   .eyebrow {
-    font-size: 10px;
-    letter-spacing: 1px;
+    display: none;
   }
 
   .lead {
@@ -864,22 +1049,32 @@ main {
   }
 
   .hero-actions {
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 24px;
+    width: 100%;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+    max-width: none;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+
+  .hero-actions .button:first-child {
+    grid-column: 1 / -1;
   }
 
   .button {
-    width: 100%;
-    justify-content: center;
     padding: 10px 16px;
     font-size: 13px;
   }
 
   .meta {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 16px;
+    display: none;
   }
 
   .meta span {
@@ -978,17 +1173,29 @@ main {
     font-size: 13px;
   }
 
-  .contact-card {
-    gap: 16px;
-    padding: 16px;
+  .contact-divider {
+    margin-top: 28px;
   }
 
-  .contact-card h3 {
-    font-size: 15px;
+  .contact-title {
+    font-size: clamp(24px, 6vw, 32px);
   }
 
-  .contact-card p {
+  .contact-email {
+    font-size: 16px;
+  }
+
+  .contact-phone {
     font-size: 13px;
+  }
+
+  .contact-location {
+    font-size: 13px;
+  }
+
+  .social-links a svg {
+    width: 24px;
+    height: 24px;
   }
 
   .project-overlay {
@@ -1034,6 +1241,11 @@ main {
 
   .project-actions {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .project-actions .button {
+    width: auto;
   }
 
   .content-text p {

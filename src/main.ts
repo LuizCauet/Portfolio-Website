@@ -73,11 +73,16 @@ const projects = {
 
 function renderHomePage() {
   return `
-    <div class="page">
+    <div class="page home">
       <header class="site-header">
         <nav class="nav">
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
           <div class="logo">Luiz Blum</div>
-          <div class="nav-links">
+          <div class="nav-links" id="nav-links">
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
@@ -86,7 +91,7 @@ function renderHomePage() {
             <a href="#contact">Contact</a>
           </div>
           <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202025.pdf" target="_blank" rel="noreferrer">
-            View Resume
+            <span class="button-text-full">View Resume</span><span class="button-text-short">Resume</span>
           </a>
         </nav>
       </header>
@@ -94,31 +99,15 @@ function renderHomePage() {
       <main>
         <section class="hero" id="about">
           <div class="hero-content">
-            <p class="eyebrow">Computer Engineering • Systems Programming</p>
             <h1>Luiz Cauet</h1>
             <h1>Castilla Ruy Blum</h1>
             <p class="lead">
-              Software engineer, game developer, and researcher focused on full-stack products, ML-driven creative tools,
-              and immersive systems that bridge music tech and interactive media.
+              Full-stack engineer & game developer creating ML-driven tools and immersive experiences.
             </p>
             <div class="hero-actions">
               <a class="button" href="mailto:luizcauetcastilla@gmail.com">Email Me</a>
               <a class="button ghost" href="https://github.com/LuizCauet" target="_blank" rel="noreferrer">GitHub</a>
               <a class="button ghost" href="https://linkedin.com/in/luizcauet" target="_blank" rel="noreferrer">LinkedIn</a>
-            </div>
-            <div class="meta">
-              <div>
-                <span>Location</span>
-                Santa Cruz, CA
-              </div>
-              <div>
-                <span>Phone</span>
-                (346) 218-1701
-              </div>
-              <div>
-                <span>Focus</span>
-                Full-stack • ML • Systems
-              </div>
             </div>
           </div>
           <div class="scroll-indicator">
@@ -262,26 +251,25 @@ function renderHomePage() {
         </section>
 
         <section class="section contact" id="contact">
-          <div class="section-header">
-            <h2>Let’s Build</h2>
-            <p>Reach out for collaboration, research, or product development.</p>
-          </div>
-          <div class="contact-card">
-            <div>
-              <h3>Contact</h3>
-              <p><strong>Email:</strong> <a href="mailto:luizcauetcastilla@gmail.com">luizcauetcastilla@gmail.com</a></p>
-              <p><strong>Phone:</strong> (346) 218-1701</p>
-            </div>
-            <div>
-              <h3>Profiles</h3>
-              <p><a href="https://github.com/LuizCauet" target="_blank" rel="noreferrer">github.com/LuizCauet</a></p>
-              <p><a href="https://linkedin.com/in/luizcauet" target="_blank" rel="noreferrer">linkedin.com/in/luizcauet</a></p>
-            </div>
-            <div>
-              <h3>Resume</h3>
-              <p><a href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202025.pdf" target="_blank" rel="noreferrer">View Resume</a></p>
+          <div class="contact-content">
+            <h2 class="contact-title">Let's Build</h2>
+            <p class="contact-email"><a href="mailto:luizcauetcastilla@gmail.com">luizcauetcastilla@gmail.com</a></p>
+            <p class="contact-phone">(346) 218-1701 · Santa Cruz, CA</p>
+            <p class="contact-location"></p>
+            <div class="social-links">
+              <a href="https://github.com/LuizCauet" target="_blank" rel="noreferrer" aria-label="GitHub">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+              </a>
+              <a href="https://linkedin.com/in/luizcauet" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
             </div>
           </div>
+          <div class="contact-divider"></div>
         </section>
       </main>
 
@@ -346,14 +334,19 @@ function renderProjectPage(projectKey: string) {
     <div class="page">
       <header class="site-header">
         <nav class="nav">
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
           <a href="#" class="logo">← Luiz Blum</a>
-          <div class="nav-links">
+          <div class="nav-links" id="nav-links">
             <a href="#">Home</a>
             <a href="#projects">Projects</a>
             <a href="${project.github}" target="_blank" rel="noreferrer">${project.linkText}</a>
           </div>
           <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202025.pdf" target="_blank" rel="noreferrer">
-            View Resume
+            <span class="button-text-full">View Resume</span><span class="button-text-short">Resume</span>
           </a>
         </nav>
       </header>
@@ -419,3 +412,98 @@ render();
 
 // Listen for hash changes
 window.addEventListener('hashchange', render);
+
+// Mobile menu toggle
+function setupMobileMenu() {
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+    
+    // Close menu when clicking nav links
+    const links = navLinks.querySelectorAll('a');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+  }
+}
+
+let isScrollListenerSetup = false;
+let isProjectCardRevealSetup = false;
+
+function updateLogoState() {
+  const currentPage = document.querySelector('.page');
+  if (!currentPage) return;
+
+  if (window.scrollY > 0) {
+    currentPage.classList.add('scrolled');
+  } else {
+    currentPage.classList.remove('scrolled');
+  }
+}
+
+function updateProjectCardHighlight() {
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('.project-card'));
+  if (cards.length === 0) return;
+
+  if (window.scrollY === 0) {
+    cards.forEach(card => card.classList.remove('is-visible'));
+    return;
+  }
+
+  const viewportCenter = window.innerHeight / 2;
+  let bestCard: HTMLElement | null = null;
+  let bestDistance = Number.POSITIVE_INFINITY;
+
+  cards.forEach(card => {
+    const rect = card.getBoundingClientRect();
+    if (rect.bottom <= 0 || rect.top >= window.innerHeight) return;
+    const cardCenter = rect.top + rect.height / 2;
+    const distance = Math.abs(cardCenter - viewportCenter);
+    if (distance < bestDistance) {
+      bestDistance = distance;
+      bestCard = card;
+    }
+  });
+
+  cards.forEach(card => card.classList.toggle('is-visible', card === bestCard));
+}
+
+function setupProjectCardReveal() {
+  if (!isProjectCardRevealSetup) {
+    window.addEventListener('scroll', updateProjectCardHighlight, { passive: true });
+    window.addEventListener('resize', updateProjectCardHighlight);
+    isProjectCardRevealSetup = true;
+  }
+
+  updateProjectCardHighlight();
+}
+
+// Setup scroll listener for logo visibility
+function setupScrollListener() {
+  if (isScrollListenerSetup) return;
+  window.addEventListener('scroll', updateLogoState, { passive: true });
+  updateLogoState();
+  isScrollListenerSetup = true;
+}
+
+// Setup mobile menu after each render
+window.addEventListener('hashchange', () => {
+  render();
+  setupMobileMenu();
+  setupScrollListener();
+  updateLogoState();
+  setupProjectCardReveal();
+});
+
+setupMobileMenu();
+setupScrollListener();
+updateLogoState();
+setupProjectCardReveal();
