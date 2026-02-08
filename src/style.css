@@ -377,6 +377,11 @@ main {
   border-color: rgba(124, 77, 255, 0.8);
 }
 
+.project-card:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .project-card img {
   width: 100%;
   height: 100%;
@@ -389,7 +394,15 @@ main {
 }
 
 .project-card::after {
-  content: none;
+  content: "→";
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  color: rgba(124, 77, 255, 0.9);
+  font-size: 20px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .project-overlay {

@@ -118,7 +118,7 @@ function renderHomePage() {
         <section class="section" id="projects">
           <div class="section-header">
             <h2>Projects</h2>
-            <p>Selected work across games, machine learning, and product design.</p>
+            <p>Selected work across full-stack, machine learning, and game development.</p>
           </div>
           <div class="project-cards">
             <article class="project-card" onclick="window.location.hash='#project/resonance'">
@@ -205,7 +205,7 @@ function renderHomePage() {
             <div class="skill-group">
               <h4>Programming Languages</h4>
               <div class="chips">
-                <span>Python</span><span>JavaScript/TypeScript</span><span>C/C++</span><span>Java</span><span>SQL</span>
+                <span>Python</span><span>JavaScript/TypeScript</span><span>C/C++</span><span>Java</span><span>SQL</span><span>Assembly</span><span>R</span>
               </div>
             </div>
             <div class="skill-group">
