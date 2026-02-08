@@ -341,6 +341,12 @@ function renderProjectPage(projectKey: string) {
           </button>
           <a href="#" class="logo">Luiz Blum</a>
           <div class="nav-links" id="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
           </div>
           <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202025.pdf" target="_blank" rel="noreferrer">
             <span class="button-text-full">View Resume</span><span class="button-text-short">Resume</span>
