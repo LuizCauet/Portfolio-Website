@@ -25,14 +25,14 @@ const projects = {
   audition: {
     title: "The Audition",
     subtitle: "3D Psych-Horror Musical Game",
-    tag: "Godot • Game Dev • Team Lead • 2025-Current",
+    tag: "Game Director • Godot Dev • Composer • 2025-Current",
     github: "https://bhranthrok.itch.io/the-audition-v0",
     linkText: "itch.io",
     contentBlocks: [
       "The Audition is a psychological horror game where performance meets terror. The game centers on a unique freestyle-performance mechanic where player improvisation dynamically affects story outcomes, creating a deeply personal horror experience that responds to how you choose to perform under pressure.",
-      "As lead developer, I manage a 12-member team across modeling, texturing, audio, and animation to deliver a cohesive 3D experience in Godot. The game features atmospheric environments including haunting hallways and experimental laboratory spaces that build tension through environmental storytelling.",
-      "As the sole programmer, I architect all gameplay systems, real-time mechanics, and narrative logic. This includes implementing the performance mechanics, AI behaviors, player interaction systems, and the dynamic narrative engine that responds to player choices throughout the game.",
-      "I handle sprint planning, Git workflow with the team, comprehensive documentation, and integration of an original soundtrack directly into gameplay systems. Performance stages serve as the climactic moments where all game systems converge - music, narrative, and gameplay merge into intense sequences that test the player's composure."
+      "As game director and co-creator, I conceived the original vision and lead the creative direction alongside my co-designer. I coordinate a 12-member team across modeling, texturing, audio, and animation to deliver a cohesive 3D experience in Godot. The game features atmospheric environments including haunting hallways and experimental laboratory spaces that build tension through environmental storytelling.",
+      "As the sole programmer, I implement all gameplay systems, real-time mechanics, and narrative logic in Godot. This includes architecting the performance mechanics, AI behaviors, player interaction systems, and the dynamic narrative engine that responds to player choices throughout the game. Every line of code and technical implementation is built by me.",
+      "I compose and produce the original soundtrack, handling sprint planning and Git workflow with the team. Performance stages serve as the climactic moments where all game systems converge - my music, narrative design, and gameplay programming merge into intense sequences that test the player's composure."
     ],
     images: [
       { src: "/assets/The Audition/Main Screen.png" },
@@ -79,8 +79,8 @@ function renderHomePage() {
           <div class="logo">Luiz Blum</div>
           <div class="nav-links">
             <a href="#about">About</a>
-            <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
             <a href="#education">Education</a>
             <a href="#contact">Contact</a>
@@ -95,7 +95,8 @@ function renderHomePage() {
         <section class="hero" id="about">
           <div class="hero-content">
             <p class="eyebrow">Computer Engineering • Systems Programming</p>
-            <h1>Luiz Cauet Castilla Ruy Blum</h1>
+            <h1>Luiz Cauet</h1>
+            <h1>Castilla Ruy Blum</h1>
             <p class="lead">
               Software engineer, game developer, and researcher focused on full-stack products, ML-driven creative tools,
               and immersive systems that bridge music tech and interactive media.
@@ -121,50 +122,7 @@ function renderHomePage() {
             </div>
           </div>
           <div class="scroll-indicator">
-            <span>Scroll to explore</span>
             <div class="scroll-arrow">↓</div>
-          </div>
-        </section>
-
-        <section class="section" id="experience">
-          <div class="section-header">
-            <h2>Experience</h2>
-            <p>Engineering, research, and leadership roles spanning software, games, and music.</p>
-          </div>
-          <div class="timeline">
-            <article class="timeline-item">
-              <div class="timeline-date">Jul 2025 — Current</div>
-              <div class="timeline-content">
-                <h3>Software Engineering Intern · Prosper XO</h3>
-                <p>Developed features for a React + Supabase music-tech web application.</p>
-                <ul>
-                  <li>Built reusable UI components and implemented backend database integrations.</li>
-                  <li>Prototyped product features and contributed to technical planning and design discussions.</li>
-                </ul>
-              </div>
-            </article>
-            <article class="timeline-item">
-              <div class="timeline-date">Jan 2026 — Current</div>
-              <div class="timeline-content">
-                <h3>Research Participant · Augmented Design Lab</h3>
-                <p>Developed PCG prototypes using LLMs, Wave Function Collapse, and Z3 constraint solving.</p>
-                <ul>
-                  <li>Implemented grid-based world generation systems and constraint-driven content pipelines.</li>
-                  <li>Analyzed and applied technical research in procedural generation and game systems.</li>
-                </ul>
-              </div>
-            </article>
-            <article class="timeline-item">
-              <div class="timeline-date">Dec 2024 — Current</div>
-              <div class="timeline-content">
-                <h3>Founder & President · The Slug Collective</h3>
-                <p>Founded and led a 100+ member interdisciplinary music & tech collective at UCSC.</p>
-                <ul>
-                  <li>Secured $1,500 in funding through technical project proposals and organizational leadership.</li>
-                  <li>Directed collaborative production of a 12-track multi-contributor digital release.</li>
-                </ul>
-              </div>
-            </article>
           </div>
         </section>
 
@@ -177,19 +135,73 @@ function renderHomePage() {
             <article class="project-card" onclick="window.location.hash='#project/resonance'">
               <img src="/assets/Resonance/Resonance Main Menu.png" alt="Resonance Main Menu" />
               <div class="project-overlay">
-                <p class="tag">Text-to-Synth Preset Generator</p>
+                <p class="project-subtitle">Text-to-Synth Preset Generator</p>
+                <p class="project-tech">ML • Python • FastAPI • Next.js</p>
               </div>
             </article>
             <article class="project-card" onclick="window.location.hash='#project/smartqueue'">
               <img src="/assets/SmartQueue/Landing.png" alt="SmartQueue Landing" />
               <div class="project-overlay">
-                <p class="tag">Adaptive Spotify Queue System</p>
+                <p class="project-subtitle">Adaptive Spotify Queue System</p>
+                <p class="project-tech">Next.js • React • Supabase • Spotify SDK</p>
               </div>
             </article>
             <article class="project-card featured" onclick="window.location.hash='#project/audition'">
               <img src="/assets/The Audition/Main Screen.png" alt="The Audition Title Screen" />
               <div class="project-overlay">
-                <p class="tag">3D Psych-Horror Musical Game</p>
+                <p class="project-subtitle">3D Psych-Horror Musical Game</p>
+                <p class="project-tech">Game Director • Godot Dev • Composer</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="experience">
+          <div class="section-header">
+            <h2>Experience</h2>
+            <p>Engineering, research, and leadership roles spanning software, games, and music.</p>
+          </div>
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="timeline-logo">
+                <img src="/assets/Experience%20Logos/prosper%20XO.png" alt="Prosper XO Logo" />
+              </div>
+              <div class="timeline-date">Jul 2025 — Current</div>
+              <div class="timeline-content">
+                <h3>Software Engineering Intern · Prosper XO</h3>
+                <p>Developed features for a React + Supabase music-tech web application.</p>
+                <ul>
+                  <li>Built reusable UI components and implemented backend database integrations.</li>
+                  <li>Prototyped product features and contributed to technical planning and design discussions.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-logo">
+                <img src="/assets/Experience%20Logos/UCSC%20Logo.png" alt="UCSC Logo" />
+              </div>
+              <div class="timeline-date">Jan 2026 — Current</div>
+              <div class="timeline-content">
+                <h3>Research Participant · Augmented Design Lab (Dr. Jim Whitehead)</h3>
+                <p>Developed PCG prototypes using LLMs, Wave Function Collapse, and Z3 constraint solving.</p>
+                <ul>
+                  <li>Implemented grid-based world generation systems and constraint-driven content pipelines.</li>
+                  <li>Analyzed and applied technical research in procedural generation and game systems.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-logo">
+                <img src="/assets/Experience%20Logos/The%20Slug%20Collective%20Logo.png" alt="The Slug Collective Logo" />
+              </div>
+              <div class="timeline-date">Dec 2024 — Current</div>
+              <div class="timeline-content">
+                <h3>Founder & President · The Slug Collective</h3>
+                <p>Founded and led a 100+ member interdisciplinary music & tech collective at UCSC.</p>
+                <ul>
+                  <li>Secured $1,500 in funding through technical project proposals and organizational leadership.</li>
+                  <li>Directed collaborative production of a 12-track multi-contributor digital release.</li>
+                </ul>
               </div>
             </article>
           </div>
@@ -242,8 +254,8 @@ function renderHomePage() {
             <div class="coursework">
               <h4>Relevant Coursework</h4>
               <p>
-                Data Structures & Algorithms, Networks, Systems Design, Computer Architecture, Intro to Software Engineering,
-                Computer Organization, Game AI
+                Data Structures & Algorithms, Game AI, Networks, Systems Design, Computer Architecture, Intro to Software Engineering,
+                Computer Organization
               </p>
             </div>
           </div>
