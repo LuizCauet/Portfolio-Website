@@ -414,8 +414,18 @@ window.addEventListener('hashchange', render);
 function setupMobileMenu() {
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
+  const siteHeader = document.querySelector<HTMLElement>('.site-header');
   
-  if (hamburger && navLinks) {
+  if (hamburger && navLinks && siteHeader) {
+    // Set CSS variable for header height
+    const setHeaderHeight = () => {
+      const headerHeight = siteHeader.offsetHeight;
+      document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+    };
+    
+    setHeaderHeight();
+    window.addEventListener('resize', setHeaderHeight);
+    
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navLinks.classList.toggle('active');

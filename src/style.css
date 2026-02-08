@@ -28,6 +28,7 @@ a {
   background: rgba(11, 11, 18, 0.85);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   z-index: 10;
+  overflow: visible;
 }
 
 .nav {
@@ -790,15 +791,17 @@ main {
 
   .nav-links {
     display: none;
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: var(--header-height, 72px);
     left: 0;
     right: 0;
+    width: 100%;
     background: rgba(11, 11, 18, 0.98);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     padding: 16px clamp(24px, 6vw, 80px);
     flex-direction: column;
+    align-items: flex-start;
     gap: 16px;
     z-index: 15;
   }
