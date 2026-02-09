@@ -17,7 +17,9 @@ const projects = {
       "The frontend provides an intuitive Next.js interface for semantic search and interactive preset editing. This project demonstrates advanced ML integration, cloud infrastructure management, and creative tool design at the intersection of music technology and AI."
     ],
     images: [
-      { src: "/assets/Resonance/Resonance Main Menu.png" },
+      { src: "/assets/Resonance/Resonance_Landing.png" },
+      { src: "/assets/Resonance/Resonance_Chat.png" },
+      { src: "/assets/Resonance/Resonance_Browse.png" },
       { src: "/assets/Resonance/VitalSynth.png" }
     ],
     extraImages: []
@@ -122,7 +124,7 @@ function renderHomePage() {
           </div>
           <div class="project-cards">
             <article class="project-card" onclick="window.location.hash='#project/resonance'">
-              <img src="/assets/Resonance/Resonance Main Menu.png" alt="Resonance Main Menu" />
+              <img src="/assets/Resonance/Resonance_Landing.png" alt="Resonance Landing" />
               <div class="project-overlay">
                 <p class="project-subtitle">Text-to-Synth Preset Generator</p>
                 <p class="project-tech">ML • Python • FastAPI • Next.js</p>
