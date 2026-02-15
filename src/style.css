@@ -1252,11 +1252,17 @@ main {
   }
 
   .project-hero h1 {
-    font-size: 24px;
+    font-size: 36px;
   }
 
   .project-hero .eyebrow {
+    display: block;
     font-size: 10px;
+  }
+
+  .project-description {
+    font-size: 14px;
+    line-height: 1.6;
   }
 
   .subtitle {

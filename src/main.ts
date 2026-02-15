@@ -85,7 +85,7 @@ function renderHomePage() {
           </button>
           <div class="logo">Luiz Blum</div>
           <div class="nav-links" id="nav-links">
-            <a href="#about">About</a>
+            <a href="#about">About Me</a>
             <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
@@ -99,7 +99,7 @@ function renderHomePage() {
       </header>
 
       <main>
-        <section class="hero" id="about">
+        <section class="hero" id="home">
           <div class="hero-content">
             <h1>Luiz Cauet</h1>
             <h1>Castilla Ruy Blum</h1>
@@ -155,20 +155,6 @@ function renderHomePage() {
           <div class="timeline">
             <article class="timeline-item">
               <div class="timeline-logo">
-                <img src="/assets/Experience%20Logos/prosper%20XO.png" alt="Prosper XO Logo" />
-              </div>
-              <div class="timeline-date">Jul 2025 — Current</div>
-              <div class="timeline-content">
-                <h3>Software Engineering Intern · Prosper XO</h3>
-                <p>Developed features for a React + Supabase music-tech web application.</p>
-                <ul>
-                  <li>Built reusable UI components and implemented backend database integrations.</li>
-                  <li>Prototyped product features and contributed to technical planning and design discussions.</li>
-                </ul>
-              </div>
-            </article>
-            <article class="timeline-item">
-              <div class="timeline-logo">
                 <img src="/assets/Experience%20Logos/UCSC%20Logo.png" alt="UCSC Logo" />
               </div>
               <div class="timeline-date">Jan 2026 — Current</div>
@@ -178,6 +164,20 @@ function renderHomePage() {
                 <ul>
                   <li>Implemented grid-based world generation systems and constraint-driven content pipelines.</li>
                   <li>Analyzed and applied technical research in procedural generation and game systems.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-logo">
+                <img src="/assets/Experience%20Logos/prosper%20XO.png" alt="Prosper XO Logo" />
+              </div>
+              <div class="timeline-date">Jul 2025 — Sep 2025</div>
+              <div class="timeline-content">
+                <h3>Software Engineering Intern · Prosper XO</h3>
+                <p>Developed features for a React + Supabase music-tech web application.</p>
+                <ul>
+                  <li>Built reusable UI components and implemented backend database integrations.</li>
+                  <li>Prototyped product features and contributed to technical planning and design discussions.</li>
                 </ul>
               </div>
             </article>
@@ -282,6 +282,63 @@ function renderHomePage() {
   `;
 }
 
+function renderAboutPage() {
+  return `
+    <div class="page">
+      <header class="site-header">
+        <nav class="nav">
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <a href="#" class="logo">Luiz Blum</a>
+          <div class="nav-links" id="nav-links">
+            <a href="#about">About Me</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202025.pdf" target="_blank" rel="noreferrer">
+            <span class="button-text-full">View Resume</span><span class="button-text-short">Resume</span>
+          </a>
+        </nav>
+      </header>
+
+      <main class="project-page">
+        <section class="project-hero">
+          <p class="eyebrow">About Me</p>
+          <h1>Hi, I'm Luiz.</h1>
+        </section>
+
+        <section class="section">
+          <div class="project-description">
+            <p>
+              I'm a computer engineering student at the University of California, Santa Cruz, with a focus on full-stack development, machine learning, and game design. I love building things that sit at the intersection of technology and creative expression — whether that's an ML pipeline that translates words into synthesizer sounds, or a horror game where your musical performance shapes the story.
+            </p>
+          </div>
+          <div class="project-description">
+            <p>
+              I'm drawn to leadership as much as I am to engineering. I founded The Slug Collective, a 100+ member music and tech community at UCSC, and I direct a 12-person team building a 3D psychological horror game in Godot. I thrive in roles where I can set a vision, coordinate across disciplines, and get my hands dirty with the code at the same time.
+            </p>
+          </div>
+          <div class="project-description">
+            <p>
+              Outside of work, I am either producing music, obsessing over a new favorite artist, or spending hours in a new (or old) favorite game. My favorite game genres are MMORPGs, Strategy, and Rhythm games. Some of my favorite games which shaped who I am today are: Guitar Hero, Geometry Dash, Black Desert Online, Rocket League, Counter-Strike, and League of Legends. 
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>© 2026 Luiz Cauet Castilla Ruy Blum</p>
+      </footer>
+    </div>
+  `;
+}
+
 function renderProjectPage(projectKey: string) {
   const project = projects[projectKey as keyof typeof projects];
   if (!project) {
@@ -343,7 +400,7 @@ function renderProjectPage(projectKey: string) {
           </button>
           <a href="#" class="logo">Luiz Blum</a>
           <div class="nav-links" id="nav-links">
-            <a href="#about">About</a>
+            <a href="#about">About Me</a>
             <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
@@ -397,12 +454,14 @@ function render() {
   if (hash.startsWith('#project/')) {
     const projectKey = hash.replace('#project/', '');
     app.innerHTML = renderProjectPage(projectKey);
+  } else if (hash === '#about') {
+    app.innerHTML = renderAboutPage();
   } else {
     app.innerHTML = renderHomePage();
   }
 
   // Scroll to section if anchor present
-  if (hash && !hash.startsWith('#project/')) {
+  if (hash && !hash.startsWith('#project/') && hash !== '#about') {
     setTimeout(() => {
       const element = document.querySelector(hash);
       element?.scrollIntoView({ behavior: 'smooth' });
