@@ -27,14 +27,14 @@ const projects = {
   audition: {
     title: "The Audition",
     subtitle: "3D Psych-Horror Musical Game",
-    tag: "Game Director • Godot Dev • Composer • 2025-Current",
+    tag: "Lead AI & Software Engineer • Godot • PyTorch • 2025-Current",
     github: "https://bhranthrok.itch.io/the-audition-v0",
     linkText: "itch.io",
     contentBlocks: [
-      "The Audition is a psychological horror game where performance meets terror. The game centers on a unique freestyle-performance mechanic where player improvisation dynamically affects story outcomes, creating a deeply personal horror experience that responds to how you choose to perform under pressure.",
-      "As game director and co-creator, I conceived the original vision and lead the creative direction alongside my co-designer. I coordinate a 12-member team across modeling, texturing, audio, and animation to deliver a cohesive 3D experience in Godot. The game features atmospheric environments including haunting hallways and experimental laboratory spaces that build tension through environmental storytelling.",
-      "As the sole programmer, I implement all gameplay systems, real-time mechanics, and narrative logic in Godot. This includes architecting the performance mechanics, AI behaviors, player interaction systems, and the dynamic narrative engine that responds to player choices throughout the game. Every line of code and technical implementation is built by me.",
-      "I compose and produce the original soundtrack, handling sprint planning and Git workflow with the team. Performance stages serve as the climactic moments where all game systems converge - my music, narrative design, and gameplay programming merge into intense sequences that test the player's composure."
+      "The Audition is a multidisciplinary game project where performance, AI, and gameplay systems come together. My work centers on the technical and ML side of the project, with a focus on evaluating how player performance can be measured and used in gameplay.",
+      "I lead a 13-member multidisciplinary team while serving as the project's lead software engineer. That includes coordinating work across design, art, audio, and engineering so the game ships as a cohesive experience.",
+      "I designed, trained, and evaluated a PyTorch model to classify guitar solo quality, reaching 85% agreement with human rankings using Spearman rank correlation. I also architect and implement gameplay systems, AI behaviors, and core infrastructure in Godot.",
+      "The result is a game built around real technical systems rather than placeholder mechanics: model-driven evaluation, gameplay logic, and production-ready engineering decisions that support the broader creative vision."
     ],
     images: [
       { src: "/assets/The Audition/Main Screen.png" },
@@ -92,7 +92,7 @@ function renderHomePage() {
             <a href="#education">Education</a>
             <a href="#contact">Contact</a>
           </div>
-          <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202025.pdf" target="_blank" rel="noreferrer">
+          <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202026.pdf" target="_blank" rel="noreferrer">
             <span class="button-text-full">View Resume</span><span class="button-text-short">Resume</span>
           </a>
         </nav>
@@ -104,7 +104,7 @@ function renderHomePage() {
             <h1>Luiz Cauet</h1>
             <h1>Castilla Ruy Blum</h1>
             <p class="lead">
-              Full-stack engineer & game developer creating ML-driven tools and immersive experiences.
+              Computer engineering student building ML systems, game infrastructure, and creative software.
             </p>
             <div class="hero-actions">
               <a class="button" href="mailto:luizcauetcastilla@gmail.com">Email Me</a>
@@ -120,7 +120,7 @@ function renderHomePage() {
         <section class="section" id="projects">
           <div class="section-header">
             <h2>Projects</h2>
-            <p>Selected work across full-stack, machine learning, and game development.</p>
+            <p>Selected work across machine learning, full-stack systems, and game development.</p>
           </div>
           <div class="project-cards">
             <article class="project-card" onclick="window.location.hash='#project/resonance'">
@@ -140,8 +140,8 @@ function renderHomePage() {
             <article class="project-card featured" onclick="window.location.hash='#project/audition'">
               <img src="/assets/The Audition/Main Screen.png" alt="The Audition Title Screen" />
               <div class="project-overlay">
-                <p class="project-subtitle">3D Psych-Horror Musical Game</p>
-                <p class="project-tech">Game Director • Godot Dev • Composer</p>
+                <p class="project-subtitle">AI-Driven Guitar Performance Game</p>
+                <p class="project-tech">AI & Software Engineering • PyTorch • Godot</p>
               </div>
             </article>
           </div>
@@ -150,18 +150,19 @@ function renderHomePage() {
         <section class="section" id="experience">
           <div class="section-header">
             <h2>Experience</h2>
-            <p>Engineering, research, and leadership roles spanning software, games, and music.</p>
+            <p>Research, engineering, instruction, and community leadership roles spanning software, robotics, and ML.</p>
           </div>
           <div class="timeline">
             <article class="timeline-item">
               <div class="timeline-logo">
                 <img src="/assets/Experience%20Logos/UCSC%20Logo.png" alt="UCSC Logo" />
               </div>
-              <div class="timeline-date">Jan 2026 — Current</div>
+              <div class="timeline-date">Jan 2026 — Mar 2027</div>
               <div class="timeline-content">
-                <h3>Research Participant · Augmented Design Lab (Dr. Jim Whitehead)</h3>
-                <p>Developed PCG prototypes using LLMs, Wave Function Collapse, and Z3 constraint solving.</p>
+                <h3>Research Participant (Advisor: Dr. Jim Whitehead) · Augmented Design Lab</h3>
+                <p>Santa Cruz, California</p>
                 <ul>
+                  <li>Developed PCG prototypes using LLMs, Wave Function Collapse, and Z3 constraint solving.</li>
                   <li>Implemented grid-based world generation systems and constraint-driven content pipelines.</li>
                   <li>Analyzed and applied technical research in procedural generation and game systems.</li>
                 </ul>
@@ -169,15 +170,32 @@ function renderHomePage() {
             </article>
             <article class="timeline-item">
               <div class="timeline-logo">
-                <img src="/assets/Experience%20Logos/prosper%20XO.png" alt="Prosper XO Logo" />
+                <img src="/assets/Experience%20Logos/TheAudition%20Logo.png" alt="The Audition Logo" />
               </div>
-              <div class="timeline-date">Jul 2025 — Sep 2025</div>
+              <div class="timeline-date">Sep 2025 — Current</div>
               <div class="timeline-content">
-                <h3>Software Engineering Intern · Prosper XO</h3>
-                <p>Developed features for a React + Supabase music-tech web application.</p>
+                <h3>Lead AI & Software Engineer · The Audition</h3>
+                <p>Santa Cruz, California</p>
                 <ul>
-                  <li>Built reusable UI components and implemented backend database integrations.</li>
-                  <li>Prototyped product features and contributed to technical planning and design discussions.</li>
+                  <li>Leading a 13-member multidisciplinary team while serving as the project's lead software engineer.</li>
+                  <li>Designed, trained, and evaluated a PyTorch model to classify guitar solo quality, achieving 85% agreement with human rankings using Spearman rank correlation.</li>
+                  <li>Architecting and implementing gameplay systems, AI behaviors, and core game infrastructure in Godot.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-logo">
+                <img src="/assets/Experience%20Logos/Integem%20Logo.jpg" alt="Integem Logo" />
+              </div>
+              <div class="timeline-date">Jun 2026 — Jul 2026</div>
+              <div class="timeline-content">
+                <h3>AI & Robotics Instructor · Integem Inc.</h3>
+                <p>Fremont, California</p>
+                <ul>
+                  <li>Taught robotics, computer vision, and generative AI concepts to students ages 10–17.</li>
+                  <li>Guided students through the complete YOLOv5 training pipeline, including dataset creation, annotation, training, evaluation, and hyperparameter tuning.</li>
+                  <li>Instructed deploying of pretrained vision models for robotic object detection and manipulation workflows.</li>
+                  <li>Mentored students through NVIDIA's Generative AI curriculum, introducing diffusion models and practical machine learning concepts.</li>
                 </ul>
               </div>
             </article>
@@ -188,7 +206,7 @@ function renderHomePage() {
               <div class="timeline-date">Dec 2024 — Current</div>
               <div class="timeline-content">
                 <h3>Founder & President · The Slug Collective</h3>
-                <p>Founded and led a 100+ member interdisciplinary music & tech collective at UCSC.</p>
+                <p>Founded and led a 100+ member interdisciplinary music and tech collective at UCSC.</p>
                 <ul>
                   <li>Secured $1,500 in funding through technical project proposals and organizational leadership.</li>
                   <li>Directed collaborative production of a 12-track multi-contributor digital release.</li>
@@ -201,31 +219,25 @@ function renderHomePage() {
         <section class="section" id="skills">
           <div class="section-header">
             <h2>Skills</h2>
-            <p>Tools and languages spanning software, systems, and audio production.</p>
+            <p>Tools and languages spanning software, AI, and infrastructure.</p>
           </div>
           <div class="skill-grid">
             <div class="skill-group">
-              <h4>Programming Languages</h4>
+              <h4>Languages</h4>
               <div class="chips">
-                <span>Python</span><span>JavaScript/TypeScript</span><span>C/C++</span><span>Java</span><span>SQL</span><span>Assembly</span><span>R</span>
+                <span>Python</span><span>C/C++</span><span>TypeScript</span><span>SQL</span><span>Java</span>
               </div>
             </div>
             <div class="skill-group">
-              <h4>Frameworks & Platforms</h4>
+              <h4>AI / ML</h4>
               <div class="chips">
-                <span>React</span><span>Next.js</span><span>Node.js</span><span>Express</span><span>FastAPI</span><span>Supabase</span><span>Docker</span><span>AWS</span><span>Oracle Cloud</span>
+                <span>PyTorch</span><span>CUDA</span><span>NumPy</span><span>SciPy</span><span>FastAPI</span>
               </div>
             </div>
             <div class="skill-group">
-              <h4>Systems & Creative Tech</h4>
+              <h4>Infrastructure</h4>
               <div class="chips">
-                <span>Unix/Linux</span><span>Git</span><span>Wireshark</span><span>Godot</span><span>Audio Processing</span><span>Sound Design</span><span>FL Studio</span>
-              </div>
-            </div>
-            <div class="skill-group">
-              <h4>Spoken Languages</h4>
-              <div class="chips">
-                <span>English</span><span>Portuguese</span><span>Spanish</span>
+                <span>Linux</span><span>Docker</span><span>PostgreSQL</span><span>AWS</span><span>Supabase</span><span>Wireshark</span>
               </div>
             </div>
           </div>
@@ -239,14 +251,14 @@ function renderHomePage() {
           <div class="education-card">
             <div>
               <h3>University of California, Santa Cruz</h3>
-              <p>B.S. in Computer Engineering (Systems Programming) · CS Minor</p>
+              <p>B.S. in Computer Engineering - Systems Programming Concentration, CS Minor</p>
               <p class="muted">Expected Graduation: March 2027 · GPA: 3.5</p>
             </div>
             <div class="coursework">
               <h4>Relevant Coursework</h4>
               <p>
-                Data Structures & Algorithms, Game AI, Networks, Systems Design, Computer Architecture, Intro to Software Engineering,
-                Computer Organization
+                Machine Learning, Data Structures & Algorithms, Networks, Systems Design, Computer Architecture, Software Engineering,
+                Organization, Game AI
               </p>
             </div>
           </div>
@@ -256,7 +268,7 @@ function renderHomePage() {
           <div class="contact-content">
             <h2 class="contact-title">Let's Build</h2>
             <p class="contact-email"><a href="mailto:luizcauetcastilla@gmail.com">luizcauetcastilla@gmail.com</a></p>
-            <p class="contact-phone">(346) 218-1701 · Santa Cruz, CA</p>
+            <p class="contact-phone">(346) 218-1701 · Santa Cruz, California</p>
             <p class="contact-location"></p>
             <div class="social-links">
               <a href="https://github.com/LuizCauet" target="_blank" rel="noreferrer" aria-label="GitHub">
@@ -301,7 +313,7 @@ function renderAboutPage() {
             <a href="#education">Education</a>
             <a href="#contact">Contact</a>
           </div>
-          <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202025.pdf" target="_blank" rel="noreferrer">
+          <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202026.pdf" target="_blank" rel="noreferrer">
             <span class="button-text-full">View Resume</span><span class="button-text-short">Resume</span>
           </a>
         </nav>
@@ -316,17 +328,17 @@ function renderAboutPage() {
         <section class="section">
           <div class="project-description">
             <p>
-              I'm a computer engineering student at the University of California, Santa Cruz, with a focus on full-stack development, machine learning, and game design. I love building things that sit at the intersection of technology and creative expression — whether that's an ML pipeline that translates words into synthesizer sounds, or a horror game where your musical performance shapes the story.
+              I'm a computer engineering student at the University of California, Santa Cruz, with a focus on machine learning, systems programming, and creative software. I build tools and experiences that connect technical depth with interactive design, from procedural generation research to musical game systems.
             </p>
           </div>
           <div class="project-description">
             <p>
-              I'm drawn to leadership as much as I am to engineering. I founded The Slug Collective, a 100+ member music and tech community at UCSC, and I direct a 12-person team building a 3D psychological horror game in Godot. I thrive in roles where I can set a vision, coordinate across disciplines, and get my hands dirty with the code at the same time.
+              I'm drawn to leadership as much as I am to engineering. I founded The Slug Collective, a 100+ member music and tech community at UCSC, and I currently lead a 13-member team as the software engineer on The Audition. I thrive in roles where I can set a vision, coordinate across disciplines, and get my hands dirty with the code at the same time.
             </p>
           </div>
           <div class="project-description">
             <p>
-              Outside of work, I am either producing music, obsessing over a new favorite artist, or spending hours in a new (or old) favorite game. My favorite game genres are MMORPGs, Strategy, and Rhythm games. Some of my favorite games which shaped who I am today are: Guitar Hero, Geometry Dash, Black Desert Online, Rocket League, Counter-Strike, and League of Legends. 
+              Outside of work, I am usually producing music, exploring new systems, or spending time in games that reward experimentation and mastery. I like projects that give me room to combine engineering, creativity, and a strong sense of user experience.
             </p>
           </div>
         </section>
@@ -407,7 +419,7 @@ function renderProjectPage(projectKey: string) {
             <a href="#education">Education</a>
             <a href="#contact">Contact</a>
           </div>
-          <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202025.pdf" target="_blank" rel="noreferrer">
+          <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202026.pdf" target="_blank" rel="noreferrer">
             <span class="button-text-full">View Resume</span><span class="button-text-short">Resume</span>
           </a>
         </nav>
