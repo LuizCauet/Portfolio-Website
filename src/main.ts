@@ -328,17 +328,17 @@ function renderAboutPage() {
         <section class="section">
           <div class="project-description">
             <p>
-              I'm a computer engineering student at the University of California, Santa Cruz, with a focus on machine learning, systems programming, and creative software. I build tools and experiences that connect technical depth with interactive design, from procedural generation research to musical game systems.
+              I’m a software engineer interested in machine learning, systems, and creative technology. I’ve always enjoyed solving puzzles and finding better ways to do things, which is probably why I gravitate toward programming. I like digging into how things work, figuring out where they can be improved, and turning those ideas into software.
             </p>
           </div>
           <div class="project-description">
             <p>
-              I'm drawn to leadership as much as I am to engineering. I founded The Slug Collective, a 100+ member music and tech community at UCSC, and I currently lead a 13-member team as the software engineer on The Audition. I thrive in roles where I can set a vision, coordinate across disciplines, and get my hands dirty with the code at the same time.
+              I currently lead the engineering and AI development for The Audition, a 13-person team building a musical 3D psych-horror game. I also founded The Slug Collective, a 100+ member music and tech community at UCSC. Across these projects, I’ve had the chance to work on everything from ML and game systems to team leadership and production.
             </p>
           </div>
           <div class="project-description">
             <p>
-              Outside of work, I am usually producing music, exploring new systems, or spending time in games that reward experimentation and mastery. I like projects that give me room to combine engineering, creativity, and a strong sense of user experience.
+              Outside of engineering, I’m usually making music, discovering new artists, or playing games. Some of the games that have stuck with me the most are Guitar Hero, Geometry Dash, Black Desert Online, Rocket League, Counter-Strike, and League of Legends.
             </p>
           </div>
         </section>
