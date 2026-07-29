@@ -104,7 +104,7 @@ function renderHomePage() {
             <h1>Luiz Cauet</h1>
             <h1>Castilla Ruy Blum</h1>
             <p class="lead">
-              Computer engineering student building ML systems, game infrastructure, and creative software.
+            Building ML systems, backend infrastructure, and creative software
             </p>
             <div class="hero-actions">
               <a class="button" href="mailto:luizcauetcastilla@gmail.com">Email Me</a>
@@ -120,7 +120,7 @@ function renderHomePage() {
         <section class="section" id="projects">
           <div class="section-header">
             <h2>Projects</h2>
-            <p>Selected work across machine learning, full-stack systems, and game development.</p>
+            <p>A selection of projects across ML, systems, and creative software.</p>
           </div>
           <div class="project-cards">
             <article class="project-card" onclick="window.location.hash='#project/resonance'">
