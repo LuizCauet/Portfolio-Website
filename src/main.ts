@@ -14,7 +14,7 @@ const projects = {
       "Resonance is a multimodal machine learning pipeline that bridges natural language and synthesizer sound design. Using CLAP audio-text embeddings and vector similarity search, it maps creative prompts like 'warm vintage analog' to matching synthesizer presets in real-time.",
       "The system experiments with LLM-driven iterative fine-tuning, allowing users to refine presets through conversational feedback. This creates a dynamic loop where users can describe the sound they want and iteratively adjust it through natural language.",
       "The backend leverages Python + FastAPI with containerized ML workflows deployed on Oracle Cloud VM. The architecture handles embedding generation, vector similarity search, and preset manipulation in a scalable pipeline designed for real-time performance.",
-      "The frontend provides an intuitive Next.js interface for semantic search and interactive preset editing. This project demonstrates advanced ML integration, cloud infrastructure management, and creative tool design at the intersection of music technology and AI."
+      "The frontend provides an intuitive Next.js interface for semantic search and interactive preset editing. Bringing this idea to life was a lot of fun, and I am currently working on repackaging this into a usable plugin within any DAW! This project was also a great step towards enhancing my knowledge of ML integration and cloud infrastructure management!"
     ],
     images: [
       { src: "/assets/Resonance/Resonance_Landing.png" },
@@ -54,7 +54,7 @@ const projects = {
       "SmartQueue is an intelligent queue management system that learns from listening behavior to create personalized Spotify experiences. The application dynamically reorders playlists based on real-time user feedback and contextual signals, creating a listening session that adapts to your mood and preferences.",
       "At its core is a weighted recommendation algorithm with persistent state management. The system tracks user interactions - skips, likes, and listening patterns - to build a model of preferences that improves over time. This canonical state is maintained across sessions, allowing the algorithm to remember what works for each user.",
       "Built with Next.js and React, the interface is designed for both functionality and personalization. The responsive UI provides intuitive queue control, discovery features, and library management with dropdown navigation. Advanced search functionality helps users find exactly what they're looking for in their extensive libraries.",
-      "The backend leverages Supabase for authentication, row-level security policies, and state persistence. This architecture ensures user data is secure while maintaining the performance needed for real-time queue updates. The project showcases full-stack development capabilities, algorithmic design, and modern web architecture."
+      "The backend leverages Supabase for authentication, row-level security policies, and state persistence. This architecture ensures user data is secure while maintaining the performance needed for real-time queue updates. This project is still one of my proudest full-stack applications, and something that I use on a daily basis."
     ],
     images: [
       { src: "/assets/SmartQueue/Landing.png" },
