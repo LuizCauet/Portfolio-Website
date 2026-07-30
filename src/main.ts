@@ -150,7 +150,6 @@ function renderHomePage() {
         <section class="section" id="experience">
           <div class="section-header">
             <h2>Experience</h2>
-            <p>Research, engineering, instruction, and community leadership roles spanning software, robotics, and ML.</p>
           </div>
           <div class="timeline">
             <article class="timeline-item">
@@ -219,7 +218,6 @@ function renderHomePage() {
         <section class="section" id="skills">
           <div class="section-header">
             <h2>Skills</h2>
-            <p>Tools and languages spanning software, AI, and infrastructure.</p>
           </div>
           <div class="skill-grid">
             <div class="skill-group">
@@ -246,7 +244,6 @@ function renderHomePage() {
         <section class="section" id="education">
           <div class="section-header">
             <h2>Education</h2>
-            <p>Academic background and coursework.</p>
           </div>
           <div class="education-card">
             <div>
