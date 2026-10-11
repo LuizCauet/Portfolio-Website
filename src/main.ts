@@ -92,7 +92,7 @@ function renderHomePage() {
             <a href="#education">Education</a>
             <a href="#contact">Contact</a>
           </div>
-          <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202026.pdf" target="_blank" rel="noreferrer">
+          <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202027.pdf" target="_blank" rel="noreferrer">
             <span class="button-text-full">View Resume</span><span class="button-text-short">Resume</span>
           </a>
         </nav>
@@ -310,7 +310,7 @@ function renderAboutPage() {
             <a href="#education">Education</a>
             <a href="#contact">Contact</a>
           </div>
-          <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202026.pdf" target="_blank" rel="noreferrer">
+          <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202027.pdf" target="_blank" rel="noreferrer">
             <span class="button-text-full">View Resume</span><span class="button-text-short">Resume</span>
           </a>
         </nav>
@@ -416,7 +416,7 @@ function renderProjectPage(projectKey: string) {
             <a href="#education">Education</a>
             <a href="#contact">Contact</a>
           </div>
-          <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202026.pdf" target="_blank" rel="noreferrer">
+          <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202027.pdf" target="_blank" rel="noreferrer">
             <span class="button-text-full">View Resume</span><span class="button-text-short">Resume</span>
           </a>
         </nav>
