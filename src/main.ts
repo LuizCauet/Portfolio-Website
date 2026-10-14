@@ -156,7 +156,7 @@ function renderHomePage() {
               <div class="timeline-logo">
                 <img src="/assets/Experience%20Logos/UCSC%20Logo.png" alt="UCSC Logo" />
               </div>
-              <div class="timeline-date">Jan 2026 — Mar 2027</div>
+              <div class="timeline-date">Jan 2026 — Mar 2026</div>
               <div class="timeline-content">
                 <h3>Research Participant (Advisor: Dr. Jim Whitehead) · Augmented Design Lab</h3>
                 <p>Santa Cruz, California</p>
