@@ -1,4 +1,4 @@
-import "./style.css";
+import "./monochrome.css";
 
 const app = document.querySelector<HTMLDivElement>("#app");
 
@@ -99,14 +99,7 @@ function renderHomePage() {
       </header>
 
       <main id="main">
-        <section class="hero" id="home"><svg class="hero-sigil" viewBox="0 0 240 360" fill="none" aria-hidden="true" focusable="false">
-<defs><linearGradient id="chrome" x1="20" y1="30" x2="220" y2="330" gradientUnits="userSpaceOnUse"><stop stop-color="#bac0c7"/><stop offset=".27" stop-color="#5e6670"/><stop offset=".48" stop-color="#eef0f2"/><stop offset=".65" stop-color="#858d98"/><stop offset="1" stop-color="#c8cdd3"/></linearGradient></defs>
-<g stroke="url(#chrome)" stroke-width="1.4" stroke-linecap="square">
-<path d="M120 12V348M120 50C113 96 90 110 47 115C89 119 113 139 120 180C127 139 151 119 193 115C150 110 127 96 120 50Z"/>
-<path d="M120 112C98 151 68 163 15 162L75 183L47 219L97 196L120 270L143 196L193 219L165 183L225 162C172 163 142 151 120 112Z"/>
-<path d="M120 183C98 228 79 245 57 252L91 249L76 284L107 263L120 315L133 263L164 284L149 249L183 252C161 245 142 228 120 183Z"/>
-<path d="M79 72L103 107M161 72L137 107M33 138L67 150M207 138L173 150M98 325L120 348L142 325"/>
-</g></svg>
+        <section class="hero" id="home">
           <div class="hero-content">
             <h1>Luiz Blum.<br><span class="secondary-heading">ML systems &amp;<br>backend engineering.</span></h1>
 
