@@ -833,3 +833,11 @@ a:focus-visible,[role=link]:focus-visible,button:focus-visible {
  .timeline-logo { width:96px; height:96px; }
  .timeline-content { grid-column:1 / -1; }
 }
+
+.engineering-evidence { margin:32px 0; }
+.engineering-evidence img { display:block; width:100%; height:auto; border:1px solid #ccd2da; }
+.engineering-evidence figcaption { font-size:12px; line-height:1.8; color:var(--muted); margin-top:14px; }
+.engineering-evidence figcaption strong { font-weight:600; color:#343d49; }
+.evaluation-evidence { background:#fff; padding:14px; border:1px solid #d2d5da; }
+.evaluation-evidence img { border:0; }
+@media(max-width:620px) { .engineering-evidence { margin:24px 0; } .evaluation-evidence { padding:8px; } .engineering-evidence figcaption { font-size:12px; } }

@@ -33,7 +33,7 @@ const projects = {
     contentBlocks: [
       "The Audition is a multidisciplinary game project where performance, AI, and gameplay systems come together. My work centers on the technical and ML side of the project, with a focus on evaluating how player performance can be measured and used in gameplay.",
       "I lead a 13-member multidisciplinary team while serving as the project's lead software engineer. That includes coordinating work across design, art, audio, and engineering so the game ships as a cohesive experience.",
-      "I designed, trained, and evaluated a PyTorch model to classify guitar solo quality, reaching 85% agreement with human rankings using Spearman rank correlation. I also architect and implement gameplay systems, AI behaviors, and core infrastructure in Godot.",
+      "I designed, trained, and evaluated a PyTorch model to classify guitar solo quality, achieving Spearman rank correlation of 0.848 against human-derived Elo scores. I also architect and implement gameplay systems, AI behaviors, and core infrastructure in Godot.",
       "The result is a game built around real technical systems rather than placeholder mechanics: model-driven evaluation, gameplay logic, and production-ready engineering decisions that support the broader creative vision."
     ],
     images: [
@@ -185,7 +185,7 @@ function renderHomePage() {
                 <p>Santa Cruz, California</p>
                 <ul>
                   <li>Leading a 13-member multidisciplinary team while serving as the project's lead software engineer.</li>
-                  <li>Designed, trained, and evaluated a PyTorch model to classify guitar solo quality, achieving 85% agreement with human rankings using Spearman rank correlation.</li>
+                  <li>Designed, trained, and evaluated a PyTorch model to classify guitar solo quality, achieving Spearman rank correlation of 0.848 against human-derived Elo scores.</li>
                   <li>Architecting and implementing gameplay systems, AI behaviors, and core game infrastructure in Godot.</li>
                 </ul>
               </div>
@@ -433,24 +433,32 @@ const engineeringStudies = {
       ],
       [
         "Collect pairwise judgments",
-        "The comparison workflow asks a listener to choose between two solos under the game's investor criteria. Those comparisons establish rankings for training. LLM-generated examples supply stylistic variety, with manual review and weaker examples intended to create useful contrasts."
+        "I built a comparison website and sequence database to collect listener preferences between pairs of solos. The workflow stores sequences and maintains Elo ratings, wins, losses, and match counts, turning judgments under the investor criteria into ranking data for the model."
       ],
       [
         "Expose generation through local HTTP",
         "The design proposes FastAPI/Uvicorn as a separate local process, with Godot requesting generated solos over HTTP. This creates a clear service boundary, but adds process management, latency, and failure handling to the integration work. Fallback behavior is identified as a design consideration."
       ]
     ],
-    "results": "Built and evaluated a PyTorch model for guitar-solo quality, alongside Godot gameplay infrastructure and technical leadership across a 13-person team. A playable version of the game is available on itch.io. The Hendrix design document specifies the ranking workflow and ML-guided genetic search; it does not establish that the complete generation service is integrated into the playable build.",
-    "next": "Validate held-out ranking quality, generation latency, and end-to-end gameplay cycles. The design also calls for musical-quality testing and platform-specific memory and performance checks. Document the exact evaluation statistic before presenting the original agreement figure as a benchmark."
+    "results": "The Hendrix Engine model achieved Spearman ρ = 0.848 between predicted scores and human-derived Elo scores in the supplied evaluation. This measures agreement in ranking order, not 84.8% classification accuracy. The comparison dashboard snapshot shows 100 solo sequences and 768 recorded pairwise comparisons. Alongside this ML work, I implemented Godot infrastructure and led engineering across a 13-person team.",
+    "next": "Document the train/test split and evaluation dataset alongside the reported correlation, then measure generation latency and end-to-end gameplay behavior. The planned FastAPI integration also needs platform-specific performance and failure-handling tests."
   }
 };
+
+
+function renderAuditionEvidence(kind: 'ranking' | 'evaluation') {
+  if (kind === 'ranking') {
+    return '<figure class="engineering-evidence"><img loading="lazy" src="/assets/The Audition/Hendrix-Rankings.png" alt="Hendrix Comparison dashboard showing 100 solo sequences, 768 comparisons, and an Elo-ranked sequence table"><figcaption><strong>Custom ranking website and sequence database.</strong> The dashboard stores solo sequences and tracks ratings, wins, losses, and comparison counts. This snapshot shows 100 sequences and 768 comparisons; 58% is progress toward the estimated comparison target.</figcaption></figure>';
+  }
+  return '<figure class="engineering-evidence evaluation-evidence"><img loading="lazy" src="/assets/The Audition/Hendrix-Spearman.png" alt="Hendrix Engine evaluation scatter plot of predicted score against true Elo score, reporting Spearman rank correlation of 0.848"><figcaption><strong>Model evaluation: Spearman ρ = 0.848.</strong> Predicted scores are plotted against human-derived Elo scores. The dashed line is a linear fit; Spearman correlation measures how closely the two rankings agree.</figcaption></figure>';
+}
 
 function renderEngineeringStudy(key: string) {
  const study = engineeringStudies[key as keyof typeof engineeringStudies];
  return '<div class="case-intro"><p class="eyebrow">ENGINEERING CASE STUDY</p><h2>The problem</h2><p>' + study.problem + '</p><dl class="case-scope"><dt>Scope</dt><dd>' + study.scope + '</dd></dl></div>' +
  '<section class="case-chapter"><div class="chapter-label">01 / ARCHITECTURE</div><div><h2>Architecture</h2><p>' + study.architecture + '</p><ol class="system-flow" aria-label="Conceptual system flow">' + study.flow.map(step => '<li>' + step + '</li>').join('') + '</ol><p class="diagram-note">Conceptual system flow</p></div></section>' +
- '<section class="case-chapter"><div class="chapter-label">02 / TECHNICAL DECISIONS</div><div><h2>Technical decisions</h2>' + study.decisions.map((item, index) => '<article class="decision"><span class="decision-index">0' + (index + 1) + '</span><div><h3>' + item[0] + '</h3><p>' + item[1] + '</p></div></article>').join('') + '</div></section>' +
- '<section class="case-chapter"><div class="chapter-label">03 / RESULTS</div><div><h2>Results</h2><p>' + study.results + '</p><div class="next-step"><h3>Next validation steps</h3><p>' + study.next + '</p></div></div></section>';
+ '<section class="case-chapter"><div class="chapter-label">02 / TECHNICAL DECISIONS</div><div><h2>Technical decisions</h2>' + study.decisions.map((item, index) => '<article class="decision"><span class="decision-index">0' + (index + 1) + '</span><div><h3>' + item[0] + '</h3><p>' + item[1] + '</p></div></article>').join('') + (key === 'audition' ? renderAuditionEvidence('ranking') : '') + '</div></section>' +
+ '<section class="case-chapter"><div class="chapter-label">03 / RESULTS</div><div><h2>Results</h2><p>' + study.results + '</p>' + (key === 'audition' ? renderAuditionEvidence('evaluation') : '') + '<div class="next-step"><h3>Next validation steps</h3><p>' + study.next + '</p></div></div></section>';
 }
 function renderProjectPage(projectKey: string) {
   const project = projects[projectKey as keyof typeof projects];
