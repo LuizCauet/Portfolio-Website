@@ -14,7 +14,7 @@ const projects = {
       "Resonance is a multimodal machine learning pipeline that bridges natural language and synthesizer sound design. Using CLAP audio-text embeddings and vector similarity search, it maps creative prompts like 'warm vintage analog' to matching synthesizer presets in real-time.",
       "The system experiments with LLM-driven iterative fine-tuning, allowing users to refine presets through conversational feedback. This creates a dynamic loop where users can describe the sound they want and iteratively adjust it through natural language.",
       "The backend leverages Python + FastAPI with containerized ML workflows deployed on Oracle Cloud VM. The architecture handles embedding generation, vector similarity search, and preset manipulation in a scalable pipeline designed for real-time performance.",
-      "The frontend provides an intuitive Next.js interface for semantic search and interactive preset editing. Bringing this idea to life was a lot of fun, and I am currently working on repackaging this into a usable plugin within any DAW! This project was also a great step towards enhancing my knowledge of ML integration and cloud infrastructure management!"
+      "The frontend provides an intuitive Next.js interface for semantic search and interactive preset editing. Work on a DAW plugin is ongoing."
     ],
     images: [
       { src: "/assets/Resonance/Resonance_Landing.png" },
@@ -54,7 +54,7 @@ const projects = {
       "SmartQueue is an intelligent queue management system that learns from listening behavior to create personalized Spotify experiences. The application dynamically reorders playlists based on real-time user feedback and contextual signals, creating a listening session that adapts to your mood and preferences.",
       "At its core is a weighted recommendation algorithm with persistent state management. The system tracks user interactions - skips, likes, and listening patterns - to build a model of preferences that improves over time. This canonical state is maintained across sessions, allowing the algorithm to remember what works for each user.",
       "Built with Next.js and React, the interface is designed for both functionality and personalization. The responsive UI provides intuitive queue control, discovery features, and library management with dropdown navigation. Advanced search functionality helps users find exactly what they're looking for in their extensive libraries.",
-      "The backend leverages Supabase for authentication, row-level security policies, and state persistence. This architecture ensures user data is secure while maintaining the performance needed for real-time queue updates. This project is still one of my proudest full-stack applications, and something that I use on a daily basis."
+      "The backend leverages Supabase for authentication, row-level security policies, and state persistence. This architecture ensures user data is secure while maintaining the performance needed for real-time queue updates. I use the application daily."
     ],
     images: [
       { src: "/assets/SmartQueue/Landing.png" },
@@ -75,7 +75,7 @@ const projects = {
 
 function renderHomePage() {
   return `
-    <div class="page home">
+    <a class="skip-link" href="#main">Skip to content</a><div class="page home">
       <header class="site-header">
         <nav class="nav">
           <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -83,13 +83,13 @@ function renderHomePage() {
             <span></span>
             <span></span>
           </button>
-          <div class="logo">Luiz Blum</div>
+          <a class="logo" href="#home">Luiz Blum</a>
           <div class="nav-links" id="nav-links">
-            <a href="#about">About Me</a>
-            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#projects">Work</a>
             <a href="#experience">Experience</a>
-            <a href="#skills">Skills</a>
-            <a href="#education">Education</a>
+
+
             <a href="#contact">Contact</a>
           </div>
           <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202027.pdf" target="_blank" rel="noreferrer">
@@ -98,16 +98,23 @@ function renderHomePage() {
         </nav>
       </header>
 
-      <main>
-        <section class="hero" id="home">
+      <main id="main">
+        <section class="hero" id="home"><svg class="hero-sigil" viewBox="0 0 240 360" fill="none" aria-hidden="true" focusable="false">
+<defs><linearGradient id="chrome" x1="20" y1="30" x2="220" y2="330" gradientUnits="userSpaceOnUse"><stop stop-color="#bac0c7"/><stop offset=".27" stop-color="#5e6670"/><stop offset=".48" stop-color="#eef0f2"/><stop offset=".65" stop-color="#858d98"/><stop offset="1" stop-color="#c8cdd3"/></linearGradient></defs>
+<g stroke="url(#chrome)" stroke-width="1.4" stroke-linecap="square">
+<path d="M120 12V348M120 50C113 96 90 110 47 115C89 119 113 139 120 180C127 139 151 119 193 115C150 110 127 96 120 50Z"/>
+<path d="M120 112C98 151 68 163 15 162L75 183L47 219L97 196L120 270L143 196L193 219L165 183L225 162C172 163 142 151 120 112Z"/>
+<path d="M120 183C98 228 79 245 57 252L91 249L76 284L107 263L120 315L133 263L164 284L149 249L183 252C161 245 142 228 120 183Z"/>
+<path d="M79 72L103 107M161 72L137 107M33 138L67 150M207 138L173 150M98 325L120 348L142 325"/>
+</g></svg>
           <div class="hero-content">
-            <h1>Luiz Cauet</h1>
-            <h1>Castilla Ruy Blum</h1>
+            <h1>Luiz Blum.<br><span class="secondary-heading">ML systems &amp;<br>backend engineering.</span></h1>
+
             <p class="lead">
-            Building ML systems, backend infrastructure, and creative software
+            I build machine learning pipelines, backend services, and software that connects the two. Computer engineering at UC Santa Cruz, graduating March 2027.
             </p>
             <div class="hero-actions">
-              <a class="button" href="mailto:luizcauetcastilla@gmail.com">Email Me</a>
+              <a class="button" href="mailto:luizcauetcastilla@gmail.com">Get in touch ↗</a><a class="button outline" href="#projects">View projects ↓</a>
               <a class="button ghost" href="https://github.com/LuizCauet" target="_blank" rel="noreferrer">GitHub</a>
               <a class="button ghost" href="https://linkedin.com/in/luizcauet" target="_blank" rel="noreferrer">LinkedIn</a>
             </div>
@@ -119,29 +126,29 @@ function renderHomePage() {
 
         <section class="section" id="projects">
           <div class="section-header">
-            <h2>Projects</h2>
-            <p>A selection of projects across ML, systems, and creative software.</p>
+            <p class="eyebrow">01 / SELECTED WORK</p><h2>Selected projects</h2>
+            <p>Machine learning pipelines, recommendation systems, and applied AI.</p>
           </div>
           <div class="project-cards">
-            <article class="project-card" onclick="window.location.hash='#project/resonance'">
-              <img src="/assets/Resonance/Resonance_Landing.png" alt="Resonance Landing" />
+            <article class="project-card" tabindex="0" role="link" onclick="window.location.hash='#project/resonance'">
+              <img loading="lazy" src="/assets/Resonance/Resonance_Landing.png" alt="Resonance Landing" />
               <div class="project-overlay">
-                <p class="project-subtitle">Text-to-Synth Preset Generator</p>
-                <p class="project-tech">ML • Python • FastAPI • Next.js</p>
+                <p class="project-subtitle">Resonance — semantic sound search</p>
+                <p class="project-summary">A multimodal search pipeline mapping natural-language prompts to synthesizer presets with CLAP embeddings and vector similarity search.</p><p class="project-tech">Python · FastAPI · CLAP · Docker · Oracle Cloud</p>
               </div>
             </article>
-            <article class="project-card" onclick="window.location.hash='#project/smartqueue'">
-              <img src="/assets/SmartQueue/Landing.png" alt="SmartQueue Landing" />
+            <article class="project-card" tabindex="0" role="link" onclick="window.location.hash='#project/smartqueue'">
+              <img loading="lazy" src="/assets/SmartQueue/Landing.png" alt="SmartQueue Landing" />
               <div class="project-overlay">
-                <p class="project-subtitle">Adaptive Spotify Queue System</p>
-                <p class="project-tech">Next.js • React • Supabase • Spotify SDK</p>
+                <p class="project-subtitle">SmartQueue — adaptive recommendations</p>
+                <p class="project-summary">Weighted recommendations backed by persistent listening preferences, authentication, and row-level access policies.</p><p class="project-tech">TypeScript · Next.js · PostgreSQL · Spotify SDK</p>
               </div>
             </article>
-            <article class="project-card featured" onclick="window.location.hash='#project/audition'">
-              <img src="/assets/The Audition/Main Screen.png" alt="The Audition Title Screen" />
+            <article class="project-card featured" tabindex="0" role="link" onclick="window.location.hash='#project/audition'">
+              <img loading="lazy" src="/assets/The Audition/Main Screen.png" alt="The Audition Title Screen" />
               <div class="project-overlay">
-                <p class="project-subtitle">AI-Driven Guitar Performance Game</p>
-                <p class="project-tech">AI & Software Engineering • PyTorch • Godot</p>
+                <p class="project-subtitle">The Audition — applied ML &amp; game systems</p>
+                <p class="project-summary">Guitar-performance model development and gameplay infrastructure, with engineering leadership across a 13-person team.</p><p class="project-tech">Python · PyTorch · Godot · Model evaluation</p>
               </div>
             </article>
           </div>
@@ -149,27 +156,28 @@ function renderHomePage() {
 
         <section class="section" id="experience">
           <div class="section-header">
-            <h2>Experience</h2>
+            <p class="eyebrow">02 / EXPERIENCE</p><h2>Experience</h2>
           </div>
           <div class="timeline">
-            <article class="timeline-item">
+<article class="timeline-item">
               <div class="timeline-logo">
-                <img src="/assets/Experience%20Logos/UCSC%20Logo.png" alt="UCSC Logo" />
+                <img loading="lazy" src="/assets/Experience%20Logos/Integem%20Logo.jpg" alt="Integem Logo" />
               </div>
-              <div class="timeline-date">Jan 2026 — Mar 2026</div>
+              <div class="timeline-date">Jun 2026 — Jul 2026</div>
               <div class="timeline-content">
-                <h3>Research Participant (Advisor: Dr. Jim Whitehead) · Augmented Design Lab</h3>
-                <p>Santa Cruz, California</p>
+                <h3>AI & Robotics Instructor · Integem Inc.</h3>
+                <p>Fremont, California</p>
                 <ul>
-                  <li>Developed PCG prototypes using LLMs, Wave Function Collapse, and Z3 constraint solving.</li>
-                  <li>Implemented grid-based world generation systems and constraint-driven content pipelines.</li>
-                  <li>Analyzed and applied technical research in procedural generation and game systems.</li>
+                  <li>Taught robotics, computer vision, and generative AI concepts to students ages 10–17.</li>
+                  <li>Guided students through the complete YOLOv5 training pipeline, including dataset creation, annotation, training, evaluation, and hyperparameter tuning.</li>
+                  <li>Taught students to deploy pretrained vision models for robotic object detection and manipulation workflows.</li>
+                  <li>Mentored students through NVIDIA's Generative AI curriculum, introducing diffusion models and practical machine learning concepts.</li>
                 </ul>
               </div>
             </article>
-            <article class="timeline-item">
+<article class="timeline-item">
               <div class="timeline-logo">
-                <img src="/assets/Experience%20Logos/TheAudition%20Logo.png" alt="The Audition Logo" />
+                <img loading="lazy" src="/assets/Experience%20Logos/TheAudition%20Logo.png" alt="The Audition Logo" />
               </div>
               <div class="timeline-date">Sep 2025 — Current</div>
               <div class="timeline-content">
@@ -182,25 +190,24 @@ function renderHomePage() {
                 </ul>
               </div>
             </article>
-            <article class="timeline-item">
+<article class="timeline-item">
               <div class="timeline-logo">
-                <img src="/assets/Experience%20Logos/Integem%20Logo.jpg" alt="Integem Logo" />
+                <img loading="lazy" src="/assets/Experience%20Logos/UCSC%20Logo.png" alt="UCSC Logo" />
               </div>
-              <div class="timeline-date">Jun 2026 — Jul 2026</div>
+              <div class="timeline-date">Jan 2026 — Mar 2026</div>
               <div class="timeline-content">
-                <h3>AI & Robotics Instructor · Integem Inc.</h3>
-                <p>Fremont, California</p>
+                <h3>Research Participant (Advisor: Dr. Jim Whitehead) · Augmented Design Lab</h3>
+                <p>Santa Cruz, California</p>
                 <ul>
-                  <li>Taught robotics, computer vision, and generative AI concepts to students ages 10–17.</li>
-                  <li>Guided students through the complete YOLOv5 training pipeline, including dataset creation, annotation, training, evaluation, and hyperparameter tuning.</li>
-                  <li>Instructed deploying of pretrained vision models for robotic object detection and manipulation workflows.</li>
-                  <li>Mentored students through NVIDIA's Generative AI curriculum, introducing diffusion models and practical machine learning concepts.</li>
+                  <li>Developed PCG prototypes using LLMs, Wave Function Collapse, and Z3 constraint solving.</li>
+                  <li>Implemented grid-based world generation systems and constraint-driven content pipelines.</li>
+                  <li>Analyzed and applied technical research in procedural generation and game systems.</li>
                 </ul>
               </div>
             </article>
-            <article class="timeline-item">
+<article class="timeline-item">
               <div class="timeline-logo">
-                <img src="/assets/Experience%20Logos/The%20Slug%20Collective%20Logo.png" alt="The Slug Collective Logo" />
+                <img loading="lazy" src="/assets/Experience%20Logos/The%20Slug%20Collective%20Logo.png" alt="The Slug Collective Logo" />
               </div>
               <div class="timeline-date">Dec 2024 — Current</div>
               <div class="timeline-content">
@@ -212,12 +219,12 @@ function renderHomePage() {
                 </ul>
               </div>
             </article>
-          </div>
-        </section>
+</div>
+</section>
 
         <section class="section" id="skills">
           <div class="section-header">
-            <h2>Skills</h2>
+            <p class="eyebrow">03 / TOOLKIT</p><h2>Technical skills</h2>
           </div>
           <div class="skill-grid">
             <div class="skill-group">
@@ -243,7 +250,7 @@ function renderHomePage() {
 
         <section class="section" id="education">
           <div class="section-header">
-            <h2>Education</h2>
+            <p class="eyebrow">04 / EDUCATION</p><h2>Education</h2>
           </div>
           <div class="education-card">
             <div>
@@ -263,7 +270,7 @@ function renderHomePage() {
 
         <section class="section contact" id="contact">
           <div class="contact-content">
-            <h2 class="contact-title">Let's Build</h2>
+            <p class="eyebrow">GET IN TOUCH</p><h2 class="contact-title">Contact</h2><p class="contact-note">I’m looking for ML systems and backend engineering roles. If you’re hiring, I’d be happy to talk.</p>
             <p class="contact-email"><a href="mailto:luizcauetcastilla@gmail.com">luizcauetcastilla@gmail.com</a></p>
             <p class="contact-phone">(346) 218-1701 · Santa Cruz, California</p>
             <p class="contact-location"></p>
@@ -303,11 +310,11 @@ function renderAboutPage() {
           </button>
           <a href="#" class="logo">Luiz Blum</a>
           <div class="nav-links" id="nav-links">
-            <a href="#about">About Me</a>
-            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#projects">Work</a>
             <a href="#experience">Experience</a>
-            <a href="#skills">Skills</a>
-            <a href="#education">Education</a>
+
+
             <a href="#contact">Contact</a>
           </div>
           <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202027.pdf" target="_blank" rel="noreferrer">
@@ -316,7 +323,7 @@ function renderAboutPage() {
         </nav>
       </header>
 
-      <main class="project-page">
+      <main id="main" class="project-page">
         <section class="project-hero">
           <p class="eyebrow">About Me</p>
           <h1>Hi, I'm Luiz.</h1>
@@ -325,12 +332,12 @@ function renderAboutPage() {
         <section class="section">
           <div class="project-description">
             <p>
-              I’m a software engineer interested in machine learning, systems, and creative technology. I’ve always enjoyed solving puzzles and finding better ways to do things, which is probably why I gravitate toward programming. I like digging into how things work, figuring out where they can be improved, and turning those ideas into software.
+              I’m studying computer engineering at UC Santa Cruz, concentrating in systems programming with a computer science minor. My projects focus on machine learning pipelines, backend services, and music software. I expect to graduate in March 2027.
             </p>
           </div>
           <div class="project-description">
             <p>
-              I currently lead the engineering and AI development for The Audition, a 13-person team building a musical 3D psych-horror game. I also founded The Slug Collective, a 100+ member music and tech community at UCSC. Across these projects, I’ve had the chance to work on everything from ML and game systems to team leadership and production.
+              I currently lead the engineering and AI development for The Audition, a 13-person team building a musical 3D psych-horror game. I also founded The Slug Collective, a 100+ member music and tech community at UCSC. My work includes model training and evaluation, gameplay infrastructure, and coordinating engineering with art, audio, and design.
             </p>
           </div>
           <div class="project-description">
@@ -348,6 +355,103 @@ function renderAboutPage() {
   `;
 }
 
+const engineeringStudies = {
+  "resonance": {
+    "problem": "Musicians describe sounds by character, but preset libraries are organized by names and categories. Resonance connects those descriptions to synthesizer presets through semantic retrieval.",
+    "scope": "Multimodal retrieval, Python API, containerized deployment, and a Next.js client.",
+    "flow": [
+      "Natural-language prompt",
+      "CLAP embedding",
+      "Vector similarity search",
+      "Matching presets"
+    ],
+    "architecture": "The Next.js client provides search, browsing, and preset editing. A Python / FastAPI backend handles embedding generation, vector similarity search, and preset manipulation. Containerized ML workflows run on an Oracle Cloud VM.",
+    "decisions": [
+      [
+        "Shared audio-text embeddings",
+        "CLAP places text and audio in a shared representation, enabling semantic retrieval instead of requiring exact preset names. Results depend on how well the embeddings capture the sound characteristics in the prompt."
+      ],
+      [
+        "A Python API boundary",
+        "FastAPI exposes the ML workflow to the Next.js client, keeping embedding and retrieval logic in the backend while the interface handles interaction."
+      ],
+      [
+        "Containerized deployment",
+        "Docker packages the ML workflow for the cloud VM. Packaging the workflow keeps its dependencies together across development and deployment."
+      ]
+    ],
+    "results": "The application connects natural-language prompts to preset search and provides browsing and editing interfaces. Conversational refinement is experimental. The next stage is to quantify retrieval relevance and query latency.",
+    "next": "DAW plugin packaging is ongoing. Next evaluations could measure top-k relevance and end-to-end latency against a fixed set of sound descriptions."
+  },
+  "smartqueue": {
+    "problem": "Static playlists do not respond to changing listening preferences. SmartQueue adapts queue ordering using skips, likes, and listening patterns, with preferences retained across sessions.",
+    "scope": "Recommendation logic, persistent user state, authenticated access, and Spotify playback controls.",
+    "flow": [
+      "Listening interactions",
+      "Preference state",
+      "Weighted recommendations",
+      "Queue ordering",
+      "Spotify playback"
+    ],
+    "architecture": "A Next.js / React client provides queue controls, library browsing, and search. A weighted recommendation algorithm uses listening signals to reorder the queue. Supabase provides authentication, row-level security, and state persistence, while the Spotify SDK connects the application to playback.",
+    "decisions": [
+      [
+        "Weighted recommendations",
+        "An explicit weighted algorithm connects listening signals to queue ordering. The scoring logic stays explicit: listening signals influence ordering through weights that can be inspected and adjusted."
+      ],
+      [
+        "Persist preferences across sessions",
+        "Stored interaction history allows the queue to use prior preferences instead of starting over each session. This makes persistent state part of the recommendation workflow."
+      ],
+      [
+        "User-scoped access policies",
+        "Authentication and row-level security govern access to persisted user state. Personalized controls in the interface are backed by data access policies."
+      ]
+    ],
+    "results": "The application supports adaptive queue ordering, persistent preferences, library browsing, and search. I use it daily. Daily use provides a practical feedback loop for refining the queue experience.",
+    "next": "Useful next validation would compare skip rates against an unchanged queue and test state consistency across reconnects and concurrent sessions. "
+  },
+  "audition": {
+    "problem": "The Audition needs opponent guitar solos that feel intelligent and threatening. The Hendrix Engine is designed to optimize for the game's fictional investor: a deliberately narrow definition of impressive music, rather than a general model of musical creativity.",
+    "scope": "Lead AI and software engineering, model training and evaluation, and game infrastructure. The Hendrix Engine design covers sequence representation, human ranking, learned fitness, evolutionary generation, and a planned local API.",
+    "flow": [
+      "Ranked solo sequences",
+      "Feature extraction",
+      "Learned fitness model",
+      "Genetic search",
+      "Solo sequence → Godot"
+    ],
+    "architecture": "The proposed pipeline starts with synthetic and musician-created solo sequences. Human pairwise comparisons establish preference rankings; extracted musical features train a model that becomes the genetic algorithm's fitness function. Selection, crossover, and mutation then search for high-scoring solos. A local FastAPI service is planned to expose generation to Godot through HTTP.",
+    "decisions": [
+      [
+        "Represent music as discrete events",
+        "The design represents solos as timed notes, holds, and rests. Its initial format normalizes pitch to scale degrees, allowing note relationships to transfer between keys. A later dataset specification uses pitch-duration tuples and fixed 128-step sequences to make timing and generation constraints explicit."
+      ],
+      [
+        "Learn the evaluator, search the sequence space",
+        "Instead of asking one model to generate and judge music, the primary approach learns a fitness function from human preferences and uses a genetic algorithm to generate candidates. This separates the learned objective from the search operators: selection, crossover, and mutation."
+      ],
+      [
+        "Collect pairwise judgments",
+        "The comparison workflow asks a listener to choose between two solos under the game's investor criteria. Those comparisons establish rankings for training. LLM-generated examples supply stylistic variety, with manual review and weaker examples intended to create useful contrasts."
+      ],
+      [
+        "Expose generation through local HTTP",
+        "The design proposes FastAPI/Uvicorn as a separate local process, with Godot requesting generated solos over HTTP. This creates a clear service boundary, but adds process management, latency, and failure handling to the integration work. Fallback behavior is identified as a design consideration."
+      ]
+    ],
+    "results": "Built and evaluated a PyTorch model for guitar-solo quality, alongside Godot gameplay infrastructure and technical leadership across a 13-person team. A playable version of the game is available on itch.io. The Hendrix design document specifies the ranking workflow and ML-guided genetic search; it does not establish that the complete generation service is integrated into the playable build.",
+    "next": "Validate held-out ranking quality, generation latency, and end-to-end gameplay cycles. The design also calls for musical-quality testing and platform-specific memory and performance checks. Document the exact evaluation statistic before presenting the original agreement figure as a benchmark."
+  }
+};
+
+function renderEngineeringStudy(key: string) {
+ const study = engineeringStudies[key as keyof typeof engineeringStudies];
+ return '<div class="case-intro"><p class="eyebrow">ENGINEERING CASE STUDY</p><h2>The problem</h2><p>' + study.problem + '</p><dl class="case-scope"><dt>Scope</dt><dd>' + study.scope + '</dd></dl></div>' +
+ '<section class="case-chapter"><div class="chapter-label">01 / ARCHITECTURE</div><div><h2>Architecture</h2><p>' + study.architecture + '</p><ol class="system-flow" aria-label="Conceptual system flow">' + study.flow.map(step => '<li>' + step + '</li>').join('') + '</ol><p class="diagram-note">Conceptual system flow</p></div></section>' +
+ '<section class="case-chapter"><div class="chapter-label">02 / TECHNICAL DECISIONS</div><div><h2>Technical decisions</h2>' + study.decisions.map((item, index) => '<article class="decision"><span class="decision-index">0' + (index + 1) + '</span><div><h3>' + item[0] + '</h3><p>' + item[1] + '</p></div></article>').join('') + '</div></section>' +
+ '<section class="case-chapter"><div class="chapter-label">03 / RESULTS</div><div><h2>Results</h2><p>' + study.results + '</p><div class="next-step"><h3>Next validation steps</h3><p>' + study.next + '</p></div></div></section>';
+}
 function renderProjectPage(projectKey: string) {
   const project = projects[projectKey as keyof typeof projects];
   if (!project) {
@@ -358,45 +462,16 @@ function renderProjectPage(projectKey: string) {
   const otherProjects = Object.entries(projects)
     .filter(([key]) => key !== projectKey)
     .map(([key, proj]) => `
-      <article class="card clickable" onclick="window.location.hash='#project/${key}'">
+      <article class="card clickable" tabindex="0" role="link" onclick="window.location.hash='#project/${key}'">
         <h3>${proj.title}</h3>
         <p class="tag">${proj.subtitle}</p>
         <div class="card-arrow">→</div>
       </article>
     `).join('');
 
-  const contentSections = project.images.length > 0 
-    ? project.images.map((img, index) => {
-        const isImageLeft = index % 2 === 0;
-        const textBlock = project.contentBlocks[index] || '';
-        
-        return `
-          <div class="content-row ${isImageLeft ? 'image-left' : 'image-right'}">
-            <div class="content-image">
-              <img src="${img.src}" alt="${project.title}" />
-            </div>
-            <div class="content-text">
-              <p>${textBlock}</p>
-            </div>
-          </div>
-        `;
-      }).join('')
-    : project.contentBlocks.map(block => `<div class="project-description"><p>${block}</p></div>`).join('');
-  
-  const extraGallery = project.extraImages && project.extraImages.length > 0 ? `
-    <section class="section">
-      <div class="section-header">
-        <h2>In Different Themes!</h2>
-      </div>
-      <div class="theme-gallery">
-        ${project.extraImages.map(img => `
-          <div class="theme-item">
-            <img src="${img.src}" alt="${img.caption}" />
-          </div>
-        `).join('')}
-      </div>
-    </section>
-  ` : '';
+  const contentSections = renderEngineeringStudy(projectKey);
+
+  const extraGallery = '<section class="section case-gallery"><div class="section-header"><p class="eyebrow">04 / IN THE APPLICATION</p><h2>Interface &amp; implementation</h2></div><div class="theme-gallery">' + project.images.map((img, index) => '<figure><img loading="lazy" src="' + img.src + '" alt="' + project.title + ' application view ' + (index + 1) + '"><figcaption>' + project.title + ' / application view ' + (index + 1) + '</figcaption></figure>').join('') + '</div></section>';
 
   return `
     <div class="page">
@@ -409,11 +484,11 @@ function renderProjectPage(projectKey: string) {
           </button>
           <a href="#" class="logo">Luiz Blum</a>
           <div class="nav-links" id="nav-links">
-            <a href="#about">About Me</a>
-            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#projects">Work</a>
             <a href="#experience">Experience</a>
-            <a href="#skills">Skills</a>
-            <a href="#education">Education</a>
+
+
             <a href="#contact">Contact</a>
           </div>
           <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202027.pdf" target="_blank" rel="noreferrer">
@@ -422,9 +497,9 @@ function renderProjectPage(projectKey: string) {
         </nav>
       </header>
 
-      <main class="project-page">
+      <main id="main" class="project-page">
         <section class="project-hero">
-          <p class="eyebrow">${project.tag}</p>
+          <a class="back-link" href="#projects">← Selected work</a><p class="eyebrow">${project.tag}</p>
           <h1>${project.title}</h1>
           <p class="subtitle">${project.subtitle}</p>
           <div class="project-actions">
@@ -459,7 +534,7 @@ function render() {
   if (!app) return;
 
   const hash = window.location.hash;
-  
+
   if (hash.startsWith('#project/')) {
     const projectKey = hash.replace('#project/', '');
     app.innerHTML = renderProjectPage(projectKey);
@@ -472,7 +547,7 @@ function render() {
   // Scroll to section if anchor present
   if (hash && !hash.startsWith('#project/') && hash !== '#about') {
     setTimeout(() => {
-      const element = document.querySelector(hash);
+      const element = document.getElementById(hash.slice(1));
       element?.scrollIntoView({ behavior: 'smooth' });
     }, 100);
   } else {
@@ -480,113 +555,15 @@ function render() {
   }
 }
 
+
+
 // Initial render
 render();
 
 // Listen for hash changes
+
+
 window.addEventListener('hashchange', render);
-
-// Mobile menu toggle
-function setupMobileMenu() {
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
-  const siteHeader = document.querySelector<HTMLElement>('.site-header');
-  
-  if (hamburger && navLinks && siteHeader) {
-    // Set CSS variable for header height
-    const setHeaderHeight = () => {
-      const headerHeight = siteHeader.offsetHeight;
-      document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
-    };
-    
-    setHeaderHeight();
-    window.addEventListener('resize', setHeaderHeight);
-    
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('active');
-    });
-    
-    // Close menu when clicking nav links
-    const links = navLinks.querySelectorAll('a');
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-      });
-    });
-  }
-}
-
-let isScrollListenerSetup = false;
-let isProjectCardRevealSetup = false;
-
-function updateLogoState() {
-  const currentPage = document.querySelector('.page');
-  if (!currentPage) return;
-
-  if (window.scrollY > 0) {
-    currentPage.classList.add('scrolled');
-  } else {
-    currentPage.classList.remove('scrolled');
-  }
-}
-
-function updateProjectCardHighlight() {
-  const cards = Array.from(document.querySelectorAll<HTMLElement>('.project-card'));
-  if (cards.length === 0) return;
-
-  if (window.scrollY === 0) {
-    cards.forEach(card => card.classList.remove('is-visible'));
-    return;
-  }
-
-  const viewportCenter = window.innerHeight / 2;
-  let bestCard: HTMLElement | null = null;
-  let bestDistance = Number.POSITIVE_INFINITY;
-
-  cards.forEach(card => {
-    const rect = card.getBoundingClientRect();
-    if (rect.bottom <= 0 || rect.top >= window.innerHeight) return;
-    const cardCenter = rect.top + rect.height / 2;
-    const distance = Math.abs(cardCenter - viewportCenter);
-    if (distance < bestDistance) {
-      bestDistance = distance;
-      bestCard = card;
-    }
-  });
-
-  cards.forEach(card => card.classList.toggle('is-visible', card === bestCard));
-}
-
-function setupProjectCardReveal() {
-  if (!isProjectCardRevealSetup) {
-    window.addEventListener('scroll', updateProjectCardHighlight, { passive: true });
-    window.addEventListener('resize', updateProjectCardHighlight);
-    isProjectCardRevealSetup = true;
-  }
-
-  updateProjectCardHighlight();
-}
-
-// Setup scroll listener for logo visibility
-function setupScrollListener() {
-  if (isScrollListenerSetup) return;
-  window.addEventListener('scroll', updateLogoState, { passive: true });
-  updateLogoState();
-  isScrollListenerSetup = true;
-}
-
-// Setup mobile menu after each render
-window.addEventListener('hashchange', () => {
-  render();
-  setupMobileMenu();
-  setupScrollListener();
-  updateLogoState();
-  setupProjectCardReveal();
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter' && event.target instanceof HTMLElement && event.target.matches('[role=link]')) event.target.click();
 });
-
-setupMobileMenu();
-setupScrollListener();
-updateLogoState();
-setupProjectCardReveal();
