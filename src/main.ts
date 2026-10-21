@@ -126,7 +126,7 @@ function renderHomePage() {
 
         <section class="section" id="projects">
           <div class="section-header">
-            <p class="eyebrow">01 / SELECTED WORK</p><h2>Selected projects</h2>
+            <h2>Selected projects</h2>
             <p>Machine learning pipelines, recommendation systems, and applied AI.</p>
           </div>
           <div class="project-cards">
@@ -156,7 +156,7 @@ function renderHomePage() {
 
         <section class="section" id="experience">
           <div class="section-header">
-            <p class="eyebrow">02 / EXPERIENCE</p><h2>Experience</h2>
+            <h2>Experience</h2>
           </div>
           <div class="timeline">
 <article class="timeline-item">
@@ -224,7 +224,7 @@ function renderHomePage() {
 
         <section class="section" id="skills">
           <div class="section-header">
-            <p class="eyebrow">03 / TOOLKIT</p><h2>Technical skills</h2>
+            <h2>Technical skills</h2>
           </div>
           <div class="skill-grid">
             <div class="skill-group">
@@ -250,7 +250,7 @@ function renderHomePage() {
 
         <section class="section" id="education">
           <div class="section-header">
-            <p class="eyebrow">04 / EDUCATION</p><h2>Education</h2>
+            <h2>Education</h2>
           </div>
           <div class="education-card">
             <div>
@@ -270,7 +270,7 @@ function renderHomePage() {
 
         <section class="section contact" id="contact">
           <div class="contact-content">
-            <p class="eyebrow">GET IN TOUCH</p><h2 class="contact-title">Contact</h2><p class="contact-note">I’m looking for ML systems and backend engineering roles. If you’re hiring, I’d be happy to talk.</p>
+            <h2 class="contact-title">Contact</h2><p class="contact-note">I’m looking for ML systems and backend engineering roles. If you’re hiring, I’d be happy to talk.</p>
             <p class="contact-email"><a href="mailto:luizcauetcastilla@gmail.com">luizcauetcastilla@gmail.com</a></p>
             <p class="contact-phone">(346) 218-1701 · Santa Cruz, California</p>
             <p class="contact-location"></p>
@@ -456,9 +456,9 @@ function renderAuditionEvidence(kind: 'ranking' | 'evaluation') {
 function renderEngineeringStudy(key: string) {
  const study = engineeringStudies[key as keyof typeof engineeringStudies];
  return '<div class="case-intro"><p class="eyebrow">ENGINEERING CASE STUDY</p><h2>The problem</h2><p>' + study.problem + '</p><dl class="case-scope"><dt>Scope</dt><dd>' + study.scope + '</dd></dl></div>' +
- '<section class="case-chapter"><div class="chapter-label">01 / ARCHITECTURE</div><div><h2>Architecture</h2><p>' + study.architecture + '</p><ol class="system-flow" aria-label="Conceptual system flow">' + study.flow.map(step => '<li>' + step + '</li>').join('') + '</ol><p class="diagram-note">Conceptual system flow</p></div></section>' +
- '<section class="case-chapter"><div class="chapter-label">02 / TECHNICAL DECISIONS</div><div><h2>Technical decisions</h2>' + study.decisions.map((item, index) => '<article class="decision"><span class="decision-index">0' + (index + 1) + '</span><div><h3>' + item[0] + '</h3><p>' + item[1] + '</p></div></article>').join('') + (key === 'audition' ? renderAuditionEvidence('ranking') : '') + '</div></section>' +
- '<section class="case-chapter"><div class="chapter-label">03 / RESULTS</div><div><h2>Results</h2><p>' + study.results + '</p>' + (key === 'audition' ? renderAuditionEvidence('evaluation') : '') + '<div class="next-step"><h3>Next validation steps</h3><p>' + study.next + '</p></div></div></section>';
+ '<section class="case-chapter"><div><h2>Architecture</h2><p>' + study.architecture + '</p><ol class="system-flow" aria-label="Conceptual system flow">' + study.flow.map(step => '<li>' + step + '</li>').join('') + '</ol><p class="diagram-note">Conceptual system flow</p></div></section>' +
+ '<section class="case-chapter"><div><h2>Technical decisions</h2>' + study.decisions.map((item) => '<article class="decision"><div><h3>' + item[0] + '</h3><p>' + item[1] + '</p></div></article>').join('') + (key === 'audition' ? renderAuditionEvidence('ranking') : '') + '</div></section>' +
+ '<section class="case-chapter"><div><h2>Results</h2><p>' + study.results + '</p>' + (key === 'audition' ? renderAuditionEvidence('evaluation') : '') + '<div class="next-step"><h3>Next validation steps</h3><p>' + study.next + '</p></div></div></section>';
 }
 function renderProjectPage(projectKey: string) {
   const project = projects[projectKey as keyof typeof projects];
@@ -479,7 +479,7 @@ function renderProjectPage(projectKey: string) {
 
   const contentSections = renderEngineeringStudy(projectKey);
 
-  const extraGallery = '<section class="section case-gallery"><div class="section-header"><p class="eyebrow">04 / PROJECT IMAGES</p><h2>Interface &amp; implementation</h2></div><div class="theme-gallery">' + project.images.map((img) => {
+  const extraGallery = '<section class="section case-gallery"><div class="section-header"><h2>Interface &amp; implementation</h2></div><div class="theme-gallery">' + project.images.map((img) => {
     const caption = img.caption;
     return '<figure><img loading="lazy" src="' + img.src + '" alt="' + caption + '"><figcaption>' + caption + '</figcaption></figure>';
   }).join('') + '</div></section>';
