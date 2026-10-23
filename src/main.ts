@@ -541,11 +541,69 @@ function renderProjectPage(projectKey: string) {
   `;
 }
 
+
+let motionObserver: IntersectionObserver | undefined;
+let motionKeyboardInput = false;
+const motionVisitedPages = new Set<string>();
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+const activePageAnimations = new Set<Animation>();
+document.addEventListener('keydown', () => {
+  motionKeyboardInput = true;
+  activePageAnimations.forEach(animation => animation.finish());
+}, { capture: true });
+document.addEventListener('pointerdown', () => { motionKeyboardInput = false; }, { passive: true });
+motionPreference.addEventListener('change', () => {
+  activePageAnimations.forEach(animation => animation.finish());
+});
+function revealElement(element: HTMLElement, delay = 0) {
+  if (motionKeyboardInput || !element.animate) return;
+  const frames: Keyframe[] = motionPreference.matches
+    ? [{ opacity: 0.6 }, { opacity: 1 }]
+    : [{ opacity: 0, transform: 'translateY(12px)' }, { opacity: 1, transform: 'translateY(0)' }];
+  const animation = element.animate(frames, {
+    duration: motionPreference.matches ? 150 : 300,
+    delay: motionPreference.matches ? 0 : delay,
+    easing: 'cubic-bezier(0.23, 1, 0.32, 1)',
+    fill: 'backwards'
+  });
+  activePageAnimations.add(animation);
+  const clean = () => activePageAnimations.delete(animation);
+  animation.onfinish = clean;
+  animation.oncancel = clean;
+}
+function setupPageMotion() {
+  motionObserver?.disconnect();
+  activePageAnimations.forEach(animation => animation.cancel());
+  const hash = window.location.hash;
+  const pageKey = hash.startsWith('#project/') ? hash : hash === '#about' ? 'about' : 'home';
+  if (motionVisitedPages.has(pageKey)) return;
+  motionVisitedPages.add(pageKey);
+  if (motionKeyboardInput) return;
+  const hero = document.querySelector<HTMLElement>('.hero-content, .project-hero');
+  if (!hash || hash === '#home' || pageKey !== 'home') {
+    const chunks = hero?.querySelectorAll<HTMLElement>('h1, .lead, .hero-actions, .subtitle, .project-actions');
+    chunks?.forEach((element, index) => revealElement(element, index * 60));
+  }
+  if (!('IntersectionObserver' in window)) return;
+  motionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      motionObserver?.unobserve(entry.target);
+      revealElement(entry.target as HTMLElement);
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+  document.querySelectorAll<HTMLElement>('.section-header, .project-card, .timeline-item, .case-gallery figure, .engineering-evidence').forEach(element => motionObserver?.observe(element));
+}
+
+let renderedPage = '';
 function render() {
   if (!app) return;
 
   const hash = window.location.hash;
 
+  const pageKey = hash.startsWith('#project/') ? hash : hash === '#about' ? 'about' : 'home';
+  if (pageKey !== renderedPage) {
+  renderedPage = pageKey;
   if (hash.startsWith('#project/')) {
     const projectKey = hash.replace('#project/', '');
     app.innerHTML = renderProjectPage(projectKey);
@@ -555,11 +613,13 @@ function render() {
     app.innerHTML = renderHomePage();
   }
 
+  requestAnimationFrame(setupPageMotion);
+  }
   // Scroll to section if anchor present
   if (hash && !hash.startsWith('#project/') && hash !== '#about') {
     setTimeout(() => {
       const element = document.getElementById(hash.slice(1));
-      element?.scrollIntoView({ behavior: 'smooth' });
+      element?.scrollIntoView({ behavior: motionPreference.matches || motionKeyboardInput ? 'instant' : 'smooth' });
     }, 100);
   } else {
     window.scrollTo(0, 0);
