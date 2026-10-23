@@ -20,9 +20,12 @@ a {
   color:inherit;
   text-decoration:none
 }
+@media (hover: hover) {
 a:hover {
   color:var(--green)
 }
+}
+
 a:focus-visible,[role=link]:focus-visible,button:focus-visible {
   outline:2px solid var(--green);
   outline-offset:6px
@@ -78,12 +81,15 @@ a:focus-visible,[role=link]:focus-visible,button:focus-visible {
   border-radius:4px;
   font-size:13px;
   font-weight:500;
-  transition:background .2s
+  transition:background-color 150ms ease-out
 }
+@media (hover: hover) {
 .button:hover {
   background:#2a3039;
   color:#ffffff
 }
+}
+
 .button.outline,.button.ghost {
   background:transparent;
   color:var(--green);
@@ -201,11 +207,14 @@ a:focus-visible,[role=link]:focus-visible,button:focus-visible {
   object-position:top;
   border-radius:4px;
   border:0;
-  transition:transform .2s
+  transition:none
 }
+@media (hover: hover) {
 .project-card:hover img {
-  transform:translateY(-3px)
+  transform:none
 }
+}
+
 .project-card:nth-child(2) img {
   border-color:#edf0f3
 }
@@ -666,9 +675,12 @@ a:focus-visible,[role=link]:focus-visible,button:focus-visible {
 .nav-links {
   gap:28px
 }
+@media (hover: hover) {
 .project-card[role=link]:hover .project-subtitle {
   color:var(--green)
 }
+}
+
 
 
 .skip-link {
@@ -804,11 +816,20 @@ a:focus-visible,[role=link]:focus-visible,button:focus-visible {
 }
 .eyebrow,.chapter-label { font-family:ui-monospace,Consolas,monospace; letter-spacing:1.5px; }
 .button { border-radius:0; background:#252c36; border-color:#252c36; color:#fff; }
+@media (hover: hover) {
 .button:hover { background:#414a57; border-color:#414a57; color:#fff; }
+}
+
 .button.outline { color:#343d49; border-color:#bfc5cd; background:linear-gradient(135deg,#ffffff,#edf0f3 48%,#fafbfc); }
+@media (hover: hover) {
 .button.outline:hover { background:#e5e9ee; color:#191b20; }
+}
+
 .button.ghost { color:#3d4652; background:transparent; border-color:transparent; }
+@media (hover: hover) {
 .button.ghost:hover { color:#11151b; background:#eef0f3; }
+}
+
 .project-card img,.case-gallery img { border-radius:0; }
 .project-overlay:after { font-family:ui-monospace,Consolas,monospace; font-size:11px; text-transform:uppercase; letter-spacing:.8px; }
 .contact { background:linear-gradient(115deg,#f0f2f5 0%,#fafbfd 35%,#e4e8ed 68%,#f4f6f8 100%); }
@@ -846,3 +867,32 @@ a:focus-visible,[role=link]:focus-visible,button:focus-visible {
 .case-chapter { display:block; }
 .case-chapter > div { max-width:820px; }
 .decision { display:block; }
+
+/* UI polish: flat surfaces, consistent image edges, and touch-safe feedback. */
+:root { --image-outline:oklch(0 0 0 / 0.1); }
+.project-card img,.content-image img,.case-gallery img,.engineering-evidence img {
+  border:0;
+  outline:1px solid var(--image-outline);
+  outline-offset:-1px;
+}
+.button {
+  -webkit-tap-highlight-color:transparent;
+  transition:background-color 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out, opacity 150ms ease-out;
+}
+.button:active { opacity:.8; }
+.button[aria-disabled="true"] { opacity:.5; pointer-events:none; }
+.nav-links a,.social-links a { transition:color 150ms ease-out; }
+.card:focus-visible { background:#e5e9ee; outline:2px solid #48515d; outline-offset:4px; }
+@media (hover: hover) {
+  .card:hover { background:#e5e9ee; }
+  .project-card:hover .project-overlay:after { text-decoration:underline; text-underline-offset:4px; }
+  .nav-links a:hover { text-decoration:underline; text-underline-offset:5px; }
+}
+@media (prefers-reduced-motion:no-preference) {
+  .button:not(.static):not(:disabled):not([aria-disabled="true"]) { transition-property:background-color,border-color,color,opacity,scale; transition-duration:150ms; transition-timing-function:ease-out; }
+  .button:not(.static):not(:disabled):not([aria-disabled="true"]):active { scale:0.96; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .button { transition:opacity 150ms ease-out!important; }
+  .nav-links a,.social-links a { transition:none; }
+}
