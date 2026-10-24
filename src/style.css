@@ -206,6 +206,11 @@ a:focus-visible,[role=link]:focus-visible,button:focus-visible {
 }
 }
 
+.project-card img.experiment-cover {
+  object-fit:contain;
+  object-position:center;
+  background:#fff;
+}
 .project-card:nth-child(2) img {
   border-color:#edf0f3
 }

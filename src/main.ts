@@ -24,6 +24,21 @@ const projects = {
     ],
     extraImages: []
   },
+  expression: {
+    title: "Facial Expression Game Controller",
+    subtitle: "Compact CNN & Webcam Game AI",
+    tag: "Python • TensorFlow/Keras • OpenCV • GPU training • 2026",
+    github: "https://github.com/LuizCauet/P6-CMPM146",
+    linkText: "GitHub",
+    contentBlocks: [
+      "A compact facial-expression classifier connected to a webcam-controlled tic-tac-toe game. Architecture and training experiments improved validation accuracy from 46.1% to 71.5%, while keeping the final model below 150,000 parameters."
+    ],
+    images: [
+      { src: "/assets/Facial Expression/context-long-run-curves.png", caption: "Training and validation curves / the selected context model reached 71.5% validation accuracy at epoch 82. Training accuracy is measured with dropout disabled." },
+      { src: "/assets/Facial Expression/context-layer-long-comparison.png", caption: "Matched training budget / the five-layer context model reached 71.5% selected validation accuracy versus 62.6% for the four-layer baseline, using the same seed and stopping settings." }
+    ],
+    extraImages: []
+  },
   audition: {
     title: "The Audition",
     subtitle: "3D Psych-Horror Musical Game",
@@ -135,6 +150,13 @@ function renderHomePage() {
               <div class="project-overlay">
                 <p class="project-subtitle">Resonance — semantic sound search</p>
                 <p class="project-summary">A multimodal search pipeline mapping natural-language prompts to synthesizer presets with CLAP embeddings and vector similarity search.</p><p class="project-tech">Python · FastAPI · CLAP · Docker · Oracle Cloud</p>
+              </div>
+            </article>
+            <article class="project-card" tabindex="0" role="link" onclick="window.location.hash='#project/expression'">
+              <img class="experiment-cover" loading="lazy" src="/assets/Facial Expression/context-layer-long-comparison.png" alt="Training curves comparing the compact facial-expression model with its four-layer baseline" />
+              <div class="project-overlay">
+                <p class="project-subtitle">Facial Expression — compact computer vision</p>
+                <p class="project-summary">Improved CNN validation accuracy by 25.4 percentage points (46.1% → 71.5%) through architecture and training experiments. A 141,675-parameter model powers a webcam game controller.</p><p class="project-tech">Python · TensorFlow/Keras · OpenCV · GPU training</p>
               </div>
             </article>
             <article class="project-card" tabindex="0" role="link" onclick="window.location.hash='#project/smartqueue'">
@@ -356,6 +378,38 @@ function renderAboutPage() {
 }
 
 const engineeringStudies = {
+  "expression": {
+    "problem": "Recognize happy, neutral, and surprised facial expressions within a 150,000-parameter model budget, then translate webcam predictions into tic-tac-toe moves. The recovered coursework model had 5.4 million parameters, motivating a smaller architecture and a measured optimization process.",
+    "scope": "Originally co-developed with Ananya Jakilati for CMPM 146: Game AI, Winter 2026. My follow-up work covers compact CNN design, GPU experiments, evaluation corrections, inference diagnostics, and webcam-controller improvements.",
+    "flow": [
+      "Webcam frame",
+      "Face detection & crop",
+      "Five-layer CNN",
+      "Smoothed predictions",
+      "Game action"
+    ],
+    "architecture": "OpenCV detects a face and produces a padded grayscale crop replicated across three channels at 150 × 150 pixels. The TensorFlow/Keras model rescales pixels, applies five 3 × 3 convolutions with 24, 40, 64, 80, and 80 filters, and uses three max-pooling stages. Global average pooling feeds a 64-unit dense layer, 30% dropout, and a three-class softmax. The model has 141,675 trainable parameters. The controller averages five frames and requires sufficient confidence before accepting an expression.",
+    "decisions": [
+      [
+        "Fit the parameter budget",
+        "Global average pooling replaces a large flattened dense head. The final model stays below the assignment's 150,000-parameter limit while retaining convolutional capacity for expression recognition."
+      ],
+      [
+        "Combine spatial features before averaging",
+        "An extra 80-filter convolution before global average pooling increases the theoretical receptive field from 30 × 30 to 46 × 46 input pixels. Under matched longer-run settings, validation accuracy rose from 62.6% to 71.5%. Added depth and capacity also contribute, so the comparison does not isolate receptive field alone."
+      ],
+      [
+        "Diagnose learning before changing the network",
+        "A fixed 96-image training subset reached 100% accuracy in an extended memorization diagnostic. Separate BatchNorm experiments exposed a mismatch between training and inference statistics. The retained model uses no BatchNorm. The report records 23 experiment events, including unsuccessful changes and interrupted runs."
+      ],
+      [
+        "Keep predictions and actions aligned",
+        "Model outputs and game actions originally used different class orders. Explicit label mapping and checksum-verified metadata prevent silent class swaps. Face crops, temporal smoothing, confidence gating, and camera cleanup make the controller more robust to uncertain predictions and capture failures."
+      ]
+    ],
+    "results": "CNN validation accuracy improved by 25.4 percentage points (46.1% → 71.5%) from the first compact prototype to the current model. This overall comparison combines architecture changes and a longer training budget, moving from CPU to GPU. A separate matched four-layer baseline reached 62.6%, giving the current model an 8.9-point advantage under the same maximum epochs, stopping rule, optimizer, split, and seed. The selected checkpoint came from epoch 82, using 4,000 training images and 1,000 validation images. These are single-seed validation results; the current model's test accuracy and live webcam accuracy have not been measured.",
+    "next": "Repeat across seeds, investigate optimization and data quality, and fix model choices before a final test comparison. Measure webcam behavior across lighting and capture conditions. Recognizing a visible expression does not establish a person's internal emotional state."
+  },
   "resonance": {
     "problem": "Musicians describe sounds by character, but preset libraries are organized by names and categories. Resonance connects those descriptions to synthesizer presets through semantic retrieval.",
     "scope": "Multimodal retrieval, Python API, containerized deployment, and a Next.js client.",
@@ -479,7 +533,7 @@ function renderProjectPage(projectKey: string) {
 
   const contentSections = renderEngineeringStudy(projectKey);
 
-  const extraGallery = '<section class="section case-gallery"><div class="section-header"><h2>Interface &amp; implementation</h2></div><div class="theme-gallery">' + project.images.map((img) => {
+  const extraGallery = '<section class="section case-gallery"><div class="section-header"><h2>' + (projectKey === 'expression' ? 'Experiment evidence' : 'Interface &amp; implementation') + '</h2></div><div class="theme-gallery">' + project.images.map((img) => {
     const caption = img.caption;
     return '<figure><img loading="lazy" src="' + img.src + '" alt="' + caption + '"><figcaption>' + caption + '</figcaption></figure>';
   }).join('') + '</div></section>';
@@ -515,6 +569,7 @@ function renderProjectPage(projectKey: string) {
           <p class="subtitle">${project.subtitle}</p>
           <div class="project-actions">
             <a class="button" href="${project.github}" target="_blank" rel="noreferrer">View on ${project.linkText}</a>
+            ${projectKey === 'expression' ? '<a class="button outline" href="https://github.com/LuizCauet/P6-CMPM146/blob/main/docs/EXPERIMENT_REPORT.md" target="_blank" rel="noreferrer">Read experiment report</a>' : ''}
           </div>
         </section>
 
