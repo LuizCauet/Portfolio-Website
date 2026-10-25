@@ -25,7 +25,7 @@ const projects = {
     extraImages: []
   },
   expression: {
-    title: "Expression-Controlled Tic-Tac-Toe",
+    title: "Facial Expression Game Controller",
     subtitle: "Compact CNN & Webcam Game AI",
     tag: "Python • TensorFlow/Keras • OpenCV • GPU training • 2026",
     github: "https://github.com/LuizCauet/P6-CMPM146",
@@ -155,7 +155,7 @@ function renderHomePage() {
             <article class="project-card" tabindex="0" role="link" onclick="window.location.hash='#project/expression'">
               <img class="experiment-cover" loading="lazy" src="/assets/Facial Expression/context-layer-long-comparison.png" alt="Training curves comparing the compact facial-expression model with its four-layer baseline" />
               <div class="project-overlay">
-                <p class="project-subtitle">Expression-Controlled Tic-Tac-Toe</p>
+                <p class="project-subtitle">Facial Expression Game Controller</p>
                 <p class="project-summary">Improved CNN validation accuracy by 25.4 percentage points (46.1% → 71.5%) through architecture and training experiments. A 141,675-parameter model powers a webcam game controller.</p><p class="project-tech">Python · TensorFlow/Keras · OpenCV · GPU training</p>
               </div>
             </article>
