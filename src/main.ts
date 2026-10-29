@@ -103,6 +103,45 @@ const projects = {
   }
 };
 
+const projectCards: Record<string, string> = {
+  slugcollective: `<article class="project-card" tabindex="0" role="link" onclick="window.location.hash='#project/slugcollective'">
+              <img loading="lazy" src="/assets/Slug Collective/groups.png" alt="Slug Collective production group results with fictional attendees" />
+              <div class="project-overlay">
+                <p class="project-subtitle">Slug Collective — community &amp; event groups</p>
+                <p class="project-summary">A deployed music community app with shared-taste discovery, authorized messaging, and QR-based production groups. Admins review assignments before publishing.</p><p class="project-tech">JavaScript · Cloudflare Workers · D1 / SQLite · Discord OAuth</p>
+              </div>
+            </article>`,
+  resonance: `<article class="project-card" tabindex="0" role="link" onclick="window.location.hash='#project/resonance'">
+              <img loading="lazy" src="/assets/Resonance/Resonance_Landing.png" alt="Resonance Landing" />
+              <div class="project-overlay">
+                <p class="project-subtitle">Resonance — semantic sound search</p>
+                <p class="project-summary">A multimodal search pipeline mapping natural-language prompts to synthesizer presets with CLAP embeddings and vector similarity search.</p><p class="project-tech">Python · FastAPI · CLAP · Docker · Oracle Cloud</p>
+              </div>
+            </article>`,
+  expression: `<article class="project-card" tabindex="0" role="link" onclick="window.location.hash='#project/expression'">
+              <img class="experiment-cover" loading="lazy" src="/assets/Facial Expression/context-layer-long-comparison.png" alt="Training curves comparing the compact facial-expression model with its four-layer baseline" />
+              <div class="project-overlay">
+                <p class="project-subtitle">Facial Expression Game Controller</p>
+                <p class="project-summary">Improved CNN validation accuracy by 25.4 percentage points (46.1% → 71.5%) through architecture and training experiments. A 141,675-parameter model powers a webcam game controller.</p><p class="project-tech">Python · TensorFlow/Keras · OpenCV · GPU training</p>
+              </div>
+            </article>`,
+  smartqueue: `<article class="project-card" tabindex="0" role="link" onclick="window.location.hash='#project/smartqueue'">
+              <img loading="lazy" src="/assets/SmartQueue/Landing.png" alt="SmartQueue Landing" />
+              <div class="project-overlay">
+                <p class="project-subtitle">SmartQueue — adaptive recommendations</p>
+                <p class="project-summary">Weighted recommendations backed by persistent listening preferences, authentication, and row-level access policies.</p><p class="project-tech">TypeScript · Next.js · PostgreSQL · Spotify SDK</p>
+              </div>
+            </article>`,
+  audition: `<article class="project-card featured" tabindex="0" role="link" onclick="window.location.hash='#project/audition'">
+              <img loading="lazy" src="/assets/The Audition/Main Screen.png" alt="The Audition Title Screen" />
+              <div class="project-overlay">
+                <p class="project-subtitle">The Audition — applied ML &amp; game systems</p>
+                <p class="project-summary">Guitar-performance model development and gameplay infrastructure, with engineering leadership across a 13-person team.</p><p class="project-tech">Python · PyTorch · Godot · Model evaluation</p>
+              </div>
+            </article>`,
+};
+function renderProjectCard(key: string) { return projectCards[key] || ""; }
+
 function renderHomePage() {
   return `
     <a class="skip-link" href="#main">Skip to content</a><div class="page home">
@@ -116,7 +155,7 @@ function renderHomePage() {
           <a class="logo" href="#home">Luiz Blum</a>
           <div class="nav-links" id="nav-links">
             <a href="#about">About</a>
-            <a href="#projects">Work</a>
+            <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
 
 
@@ -144,7 +183,7 @@ function renderHomePage() {
             I build machine learning pipelines, backend services, and software that connects the two. Computer engineering at UC Santa Cruz, graduating March 2027.
             </p>
             <div class="hero-actions">
-              <a class="button" href="mailto:luizcauetcastilla@gmail.com">Get in touch ↗</a><a class="button outline" href="#projects">View projects ↓</a>
+              <a class="button" href="mailto:luizcauetcastilla@gmail.com">Get in touch ↗</a><a class="button outline" href="#work">View selected work ↓</a>
               <a class="button ghost" href="https://github.com/LuizCauet" target="_blank" rel="noreferrer">GitHub</a>
               <a class="button ghost" href="https://linkedin.com/in/luizcauet" target="_blank" rel="noreferrer">LinkedIn</a>
             </div>
@@ -154,48 +193,15 @@ function renderHomePage() {
           </div>
         </section>
 
-        <section class="section" id="projects">
+        <section class="section" id="work">
           <div class="section-header">
             <h2>Selected projects</h2>
             <p>Machine learning pipelines, backend services, and recommendation systems.</p>
           </div>
           <div class="project-cards">
-            <article class="project-card" tabindex="0" role="link" onclick="window.location.hash='#project/slugcollective'">
-              <img loading="lazy" src="/assets/Slug Collective/groups.png" alt="Slug Collective production group results with fictional attendees" />
-              <div class="project-overlay">
-                <p class="project-subtitle">Slug Collective — community &amp; event groups</p>
-                <p class="project-summary">A deployed music community app with shared-taste discovery, authorized messaging, and QR-based production groups. Admins review assignments before publishing.</p><p class="project-tech">JavaScript · Cloudflare Workers · D1 / SQLite · Discord OAuth</p>
-              </div>
-            </article>
-            <article class="project-card" tabindex="0" role="link" onclick="window.location.hash='#project/resonance'">
-              <img loading="lazy" src="/assets/Resonance/Resonance_Landing.png" alt="Resonance Landing" />
-              <div class="project-overlay">
-                <p class="project-subtitle">Resonance — semantic sound search</p>
-                <p class="project-summary">A multimodal search pipeline mapping natural-language prompts to synthesizer presets with CLAP embeddings and vector similarity search.</p><p class="project-tech">Python · FastAPI · CLAP · Docker · Oracle Cloud</p>
-              </div>
-            </article>
-            <article class="project-card" tabindex="0" role="link" onclick="window.location.hash='#project/expression'">
-              <img class="experiment-cover" loading="lazy" src="/assets/Facial Expression/context-layer-long-comparison.png" alt="Training curves comparing the compact facial-expression model with its four-layer baseline" />
-              <div class="project-overlay">
-                <p class="project-subtitle">Facial Expression Game Controller</p>
-                <p class="project-summary">Improved CNN validation accuracy by 25.4 percentage points (46.1% → 71.5%) through architecture and training experiments. A 141,675-parameter model powers a webcam game controller.</p><p class="project-tech">Python · TensorFlow/Keras · OpenCV · GPU training</p>
-              </div>
-            </article>
-            <article class="project-card" tabindex="0" role="link" onclick="window.location.hash='#project/smartqueue'">
-              <img loading="lazy" src="/assets/SmartQueue/Landing.png" alt="SmartQueue Landing" />
-              <div class="project-overlay">
-                <p class="project-subtitle">SmartQueue — adaptive recommendations</p>
-                <p class="project-summary">Weighted recommendations backed by persistent listening preferences, authentication, and row-level access policies.</p><p class="project-tech">TypeScript · Next.js · PostgreSQL · Spotify SDK</p>
-              </div>
-            </article>
-            <article class="project-card featured" tabindex="0" role="link" onclick="window.location.hash='#project/audition'">
-              <img loading="lazy" src="/assets/The Audition/Main Screen.png" alt="The Audition Title Screen" />
-              <div class="project-overlay">
-                <p class="project-subtitle">The Audition — applied ML &amp; game systems</p>
-                <p class="project-summary">Guitar-performance model development and gameplay infrastructure, with engineering leadership across a 13-person team.</p><p class="project-tech">Python · PyTorch · Godot · Model evaluation</p>
-              </div>
-            </article>
+            ${['resonance', 'expression', 'audition'].map(renderProjectCard).join('')}
           </div>
+          <div class="all-projects-link"><a class="button outline" href="#projects">View all projects ↗</a></div>
         </section>
 
         <section class="section" id="experience">
@@ -343,6 +349,47 @@ function renderHomePage() {
   `;
 }
 
+function renderProjectsPage() {
+  return `
+    <a class="skip-link" href="#main">Skip to content</a><div class="page projects-catalog">
+      <header class="site-header">
+        <nav class="nav">
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <a class="logo" href="#home">Luiz Blum</a>
+          <div class="nav-links" id="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects" aria-current="page">Projects</a>
+            <a href="#experience">Experience</a>
+
+
+            <a href="#contact">Contact</a>
+          </div>
+          <a class="button outline" href="/assets/Luiz%20Cauet%20Castilla%20Ruy%20Blum%20Resume%202027.pdf" target="_blank" rel="noreferrer">
+            <span class="button-text-full">View Resume</span><span class="button-text-short">Resume</span>
+          </a>
+        </nav>
+      </header>
+      <main id="main" class="project-page">
+        <section class="project-hero">
+          <a class="back-link" href="#work">← Selected work</a>
+          <p class="eyebrow">THE FULL COLLECTION</p>
+          <h1>Projects</h1>
+          <p class="subtitle">Machine learning, backend systems, and music software.</p>
+        </section>
+        <section class="section" aria-label="All projects">
+          <div class="project-cards">
+            ${['resonance', 'expression', 'audition', 'slugcollective', 'smartqueue'].map(renderProjectCard).join('')}
+          </div>
+        </section>
+      </main>
+      <footer class="footer"><p>© 2026 Luiz Cauet Castilla Ruy Blum</p></footer>
+    </div>`;
+}
+
 function renderAboutPage() {
   return `
     <div class="page">
@@ -356,7 +403,7 @@ function renderAboutPage() {
           <a href="#" class="logo">Luiz Blum</a>
           <div class="nav-links" id="nav-links">
             <a href="#about">About</a>
-            <a href="#projects">Work</a>
+            <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
 
 
@@ -588,7 +635,7 @@ function renderProjectPage(projectKey: string) {
           <a href="#" class="logo">Luiz Blum</a>
           <div class="nav-links" id="nav-links">
             <a href="#about">About</a>
-            <a href="#projects">Work</a>
+            <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
 
 
@@ -602,7 +649,7 @@ function renderProjectPage(projectKey: string) {
 
       <main id="main" class="project-page">
         <section class="project-hero">
-          <a class="back-link" href="#projects">← Selected work</a><p class="eyebrow">${project.tag}</p>
+          <a class="back-link" href="#projects">← All projects</a><p class="eyebrow">${project.tag}</p>
           <h1>${project.title}</h1>
           <p class="subtitle">${project.subtitle}</p>
           <div class="project-actions">
@@ -669,7 +716,7 @@ function setupPageMotion() {
   motionObserver?.disconnect();
   activePageAnimations.forEach(animation => animation.cancel());
   const hash = window.location.hash;
-  const pageKey = hash.startsWith('#project/') ? hash : hash === '#about' ? 'about' : 'home';
+  const pageKey = hash.startsWith('#project/') ? hash : hash === '#about' ? 'about' : hash === '#projects' ? 'projects' : 'home';
   if (motionVisitedPages.has(pageKey)) return;
   motionVisitedPages.add(pageKey);
   if (motionKeyboardInput) return;
@@ -695,12 +742,14 @@ function render() {
 
   const hash = window.location.hash;
 
-  const pageKey = hash.startsWith('#project/') ? hash : hash === '#about' ? 'about' : 'home';
+  const pageKey = hash.startsWith('#project/') ? hash : hash === '#about' ? 'about' : hash === '#projects' ? 'projects' : 'home';
   if (pageKey !== renderedPage) {
   renderedPage = pageKey;
   if (hash.startsWith('#project/')) {
     const projectKey = hash.replace('#project/', '');
     app.innerHTML = renderProjectPage(projectKey);
+  } else if (hash === '#projects') {
+    app.innerHTML = renderProjectsPage();
   } else if (hash === '#about') {
     app.innerHTML = renderAboutPage();
   } else {
@@ -710,7 +759,7 @@ function render() {
   requestAnimationFrame(setupPageMotion);
   }
   // Scroll to section if anchor present
-  if (hash && !hash.startsWith('#project/') && hash !== '#about') {
+  if (hash && !hash.startsWith('#project/') && hash !== '#about' && hash !== '#projects') {
     setTimeout(() => {
       const element = document.getElementById(hash.slice(1));
       element?.scrollIntoView({ behavior: motionPreference.matches || motionKeyboardInput ? 'instant' : 'smooth' });
