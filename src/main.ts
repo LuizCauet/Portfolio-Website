@@ -4,6 +4,21 @@ const app = document.querySelector<HTMLDivElement>("#app");
 
 // Project data
 const projects = {
+  slugcollective: {
+    title: "Slug Collective",
+    subtitle: "Music Community & Production Groups",
+    tag: "JavaScript • Cloudflare Workers • D1 / SQLite • 2026",
+    github: "https://github.com/LuizCauet/slug-collective",
+    linkText: "GitHub",
+    contentBlocks: [
+      "A deployed community app for UC Santa Cruz musicians and creatives, with shared-taste discovery, private messaging, and QR-based production groups."
+    ],
+    images: [
+      { src: "/assets/Slug Collective/people.png", caption: "Shared-taste discovery / fictional members in an isolated local database; no real member profiles or messages are shown." },
+      { src: "/assets/Slug Collective/groups.png", caption: "Production groups / fictional local attendees see their own group first, with an option to view all groups." }
+    ],
+    extraImages: []
+  },
   resonance: {
     title: "Resonance",
     subtitle: "Text-to-Synth Preset Generator",
@@ -142,9 +157,16 @@ function renderHomePage() {
         <section class="section" id="projects">
           <div class="section-header">
             <h2>Selected projects</h2>
-            <p>Machine learning pipelines, recommendation systems, and applied AI.</p>
+            <p>Machine learning pipelines, backend services, and recommendation systems.</p>
           </div>
           <div class="project-cards">
+            <article class="project-card" tabindex="0" role="link" onclick="window.location.hash='#project/slugcollective'">
+              <img loading="lazy" src="/assets/Slug Collective/groups.png" alt="Slug Collective production group results with fictional attendees" />
+              <div class="project-overlay">
+                <p class="project-subtitle">Slug Collective — community &amp; event groups</p>
+                <p class="project-summary">A deployed music community app with shared-taste discovery, authorized messaging, and QR-based production groups. Admins review assignments before publishing.</p><p class="project-tech">JavaScript · Cloudflare Workers · D1 / SQLite · Discord OAuth</p>
+              </div>
+            </article>
             <article class="project-card" tabindex="0" role="link" onclick="window.location.hash='#project/resonance'">
               <img loading="lazy" src="/assets/Resonance/Resonance_Landing.png" alt="Resonance Landing" />
               <div class="project-overlay">
@@ -238,6 +260,7 @@ function renderHomePage() {
                 <ul>
                   <li>Secured $1,500 in funding through technical project proposals and organizational leadership.</li>
                   <li>Directed collaborative production of a 12-track multi-contributor digital release.</li>
+                  <li>Built the club’s deployed community app, with shared-taste discovery, private messaging, and QR-based music production groups.</li>
                 </ul>
               </div>
             </article>
@@ -378,6 +401,21 @@ function renderAboutPage() {
 }
 
 const engineeringStudies = {
+  "slugcollective": {
+    "problem": "Members of the music collective I founded need an easier way to find collaborators and form production groups at meetings. Shared listening offers a concrete starting point for a conversation or a track.",
+    "scope": "End-to-end product and backend development: discovery, music imports, authentication, private messaging, event attendance, grouping, and deployment.",
+    "flow": ["Saved music taste", "QR event join", "Taste-based draft groups", "Host review & publication", "Production session"],
+    "architecture": "A responsive JavaScript client calls an authenticated Cloudflare Worker API backed by D1 / SQLite. Discord OAuth establishes identity, and club invites gate first-time registration. Spotify export parsing runs in a browser Web Worker; only reviewed artist aggregates are saved. Versioned event drafts separate host edits from published assignments.",
+    "decisions": [
+      ["Keep matching explainable", "Shared artists receive community-frequency weights, with uncommon artists contributing more. Event grouping prioritizes artist overlap and uses genres as a fallback. This is a deterministic scoring baseline and bounded grouping heuristic, not a trained ML model or a claimed globally optimal partition."],
+      ["Review drafts before changing the room", "Admins choose a preferred group size, sort attendees, inspect weak matches, and move members before publishing. Roster and draft revisions reject stale updates. Late arrivals wait for manual placement, and published groups stay stable until an explicit update."],
+      ["Keep raw imports on the device", "Spotify ZIP and JSON exports are parsed locally. Members review the extracted artists before saving; raw listening archives and unrelated account fields are not uploaded. Manual artist entry remains available."],
+      ["Enforce access in the API", "Server-side membership, admin, and conversation-participant checks govern access. Authenticated writes require same-origin and CSRF validation. Unique constraints make message retries and event joins idempotent; account deletion removes associated sessions and event taste snapshots."]
+    ],
+    "results": "The invite-only beta is deployed with People and Create discovery, persistent messaging, and configurable production groups. Attendees scan a QR code, confirm joining with saved taste, and see their own group first after publication. Validation includes 118 automated tests, isolated D1 integration tests, and local browser checks of QR decoding and host/member flows. Portfolio screenshots use fictional members.",
+    "next": "Evaluate match relevance with opt-in feedback, measure grouping performance on larger rosters in the deployed environment, and validate the event workflow during club sessions. Community size is not a measured app adoption count."
+  },
+
   "expression": {
     "problem": "Recognize happy, neutral, and surprised facial expressions within a 150,000-parameter model budget, then translate webcam predictions into tic-tac-toe moves. The recovered coursework model had 5.4 million parameters, motivating a smaller architecture and a measured optimization process.",
     "scope": "Originally co-developed with Ananya Jakilati for CMPM 146: Game AI, Winter 2026. My follow-up work covers compact CNN design, GPU experiments, evaluation corrections, inference diagnostics, and webcam-controller improvements.",
@@ -569,6 +607,7 @@ function renderProjectPage(projectKey: string) {
           <p class="subtitle">${project.subtitle}</p>
           <div class="project-actions">
             <a class="button" href="${project.github}" target="_blank" rel="noreferrer">View on ${project.linkText}</a>
+            ${projectKey === 'slugcollective' ? '<a class="button outline" href="https://beta.slugcollective.workers.dev/" target="_blank" rel="noreferrer">Open live beta · club sign-in required</a>' : ''}
             ${projectKey === 'expression' ? '<a class="button outline" href="https://github.com/LuizCauet/P6-CMPM146/blob/main/docs/EXPERIMENT_REPORT.md" target="_blank" rel="noreferrer">Read experiment report</a>' : ''}
           </div>
         </section>
