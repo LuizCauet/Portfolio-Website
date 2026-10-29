@@ -278,7 +278,7 @@ function renderHomePage() {
             <div>
               <h3>University of California, Santa Cruz</h3>
               <p>B.S. in Computer Engineering - Systems Programming Concentration, CS Minor</p>
-              <p class="muted">Expected Graduation: March 2027 · GPA: 3.5</p>
+              <p class="muted">Expected Graduation: March 2027 · GPA: 3.4</p>
             </div>
             <div class="coursework">
               <h4>Relevant Coursework</h4>
