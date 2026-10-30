@@ -211,22 +211,6 @@ function renderHomePage() {
           <div class="timeline">
 <article class="timeline-item">
               <div class="timeline-logo">
-                <img loading="lazy" src="/assets/Experience%20Logos/Integem%20Logo.jpg" alt="Integem Logo" />
-              </div>
-              <div class="timeline-date">Jun 2026 — Jul 2026</div>
-              <div class="timeline-content">
-                <h3>AI & Robotics Instructor · Integem Inc.</h3>
-                <p>Fremont, California</p>
-                <ul>
-                  <li>Taught robotics, computer vision, and generative AI to students ages 10–17.</li>
-                  <li>Guided students through YOLOv5 dataset creation, annotation, training, evaluation, and hyperparameter tuning.</li>
-                  <li>Taught deployment of pretrained vision models for robotic object detection and manipulation.</li>
-                  <li>Mentored students through NVIDIA's Generative AI curriculum, covering diffusion models and applied ML.</li>
-                </ul>
-              </div>
-            </article>
-<article class="timeline-item">
-              <div class="timeline-logo">
                 <img loading="lazy" src="/assets/Experience%20Logos/TheAudition%20Logo.png" alt="The Audition Logo" />
               </div>
               <div class="timeline-date">Sep 2025 — Current</div>
@@ -234,9 +218,10 @@ function renderHomePage() {
                 <h3>Lead AI & Software Engineer · The Audition</h3>
                 <p>Santa Cruz, California</p>
                 <ul>
-                  <li>Leading software development while coordinating a 13-member multidisciplinary team.</li>
-                  <li>Designed, trained, and evaluated a PyTorch model to classify guitar solo quality, achieving 85% agreement with human rankings using Spearman rank correlation.</li>
-                  <li>Architecting and implementing software systems, AI behaviors, and core game infrastructure in Godot.</li>
+                  <li>Classified guitar solo quality, achieving 85% agreement with human rankings by designing and training a PyTorch Convolutional Neural Network model.</li>
+                  <li>Defined high solo quality by collecting 768 pairwise listener judgments across 100 solo sequences through a comparison website and sequence database.</li>
+                  <li>Led software development while coordinating a 13-member multidisciplinary team.</li>
+                  <li>Architected gameplay systems in Godot, including a freestyle-performance mechanic where player input drives narrative.</li>
                 </ul>
               </div>
             </article>
@@ -249,9 +234,24 @@ function renderHomePage() {
                 <h3>Research Participant (Advisor: Dr. Jim Whitehead) · Augmented Design Lab</h3>
                 <p>Santa Cruz, California</p>
                 <ul>
-                  <li>Developed procedural generation prototypes using LLMs (LangChain), Wave Function Collapse, and Z3 constraint solving.</li>
-                  <li>Implemented constraint-driven content pipelines and grid-based generation systems.</li>
-                  <li>Analyzed and applied technical research in procedural generation and game systems.</li>
+                  <li>Built a reusable Skills feature for the Layered-Selection-Prompting research project, condensing a multi-prompt assisted-design workflow into a single prompt.</li>
+                  <li>Developed 4 procedural generation prototypes using LLMs (LangChain), Wave Function Collapse, and Z3 constraint solving.</li>
+                  <li>Built a Z3 constraint solver for tile-based map generation that guarantees connected floor layouts and entrance-to-exit paths.</li>
+                </ul>
+              </div>
+            </article>
+<article class="timeline-item">
+              <div class="timeline-logo">
+                <img loading="lazy" src="/assets/Experience%20Logos/Integem%20Logo.jpg" alt="Integem Logo" />
+              </div>
+              <div class="timeline-date">Jun 2026 — Jul 2026</div>
+              <div class="timeline-content">
+                <h3>AI & Robotics Instructor · Integem Inc.</h3>
+                <p>Fremont, California</p>
+                <ul>
+                  <li>Taught robotics, computer vision, and generative AI to students ages 10–17.</li>
+                  <li>Guided 100+ students ages 10–17 through end-to-end YOLOv5 pipelines — dataset creation, annotation, training, tuning — to deployed vision models for robotic object detection and manipulation.</li>
+                  <li>Mentored students through NVIDIA's Generative AI curriculum, covering diffusion models and applied ML.</li>
                 </ul>
               </div>
             </article>
@@ -262,11 +262,12 @@ function renderHomePage() {
               <div class="timeline-date">Dec 2024 — Current</div>
               <div class="timeline-content">
                 <h3>Founder & President · The Slug Collective</h3>
-                <p>Founded and led a 100+ member interdisciplinary music and tech collective at UCSC.</p>
+                <p>Santa Cruz, California</p>
                 <ul>
-                  <li>Secured $1,500 in funding through technical project proposals and organizational leadership.</li>
+                  <li>Founded and led a 100+ member interdisciplinary music and tech collective at UCSC.</li>
+                  <li>Secured $1,500 in funding through technical project proposals.</li>
+                  <li>Deployed an app with shared-taste discovery, private messaging, and event group generation.</li>
                   <li>Directed production of a 12-track digital release with 20+ contributors.</li>
-                  <li>Built the club’s deployed community app, with shared-taste discovery, private messaging, and QR-based music production groups.</li>
                 </ul>
               </div>
             </article>
@@ -293,7 +294,7 @@ function renderHomePage() {
             <div class="skill-group">
               <h4>Infrastructure</h4>
               <div class="chips">
-                <span>Linux</span><span>Docker</span><span>PostgreSQL</span><span>FastAPI</span><span>AWS</span><span>Supabase</span><span>Wireshark</span>
+                <span>Linux</span><span>Docker</span><span>PostgreSQL</span><span>FastAPI</span><span>AWS</span><span>Wireshark</span>
               </div>
             </div>
           </div>
@@ -306,7 +307,7 @@ function renderHomePage() {
           <div class="education-card">
             <div>
               <h3>University of California, Santa Cruz</h3>
-              <p>B.S. in Computer Engineering - Systems Programming Concentration, CS Minor</p>
+              <p>B.S. in Computer Engineering - Systems Programming, CS Minor</p>
               <p class="muted">Expected Graduation: March 2027 · GPA: 3.4</p>
             </div>
             <div class="coursework">
