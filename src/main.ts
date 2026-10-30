@@ -22,12 +22,12 @@ const projects = {
   resonance: {
     title: "Resonance",
     subtitle: "Text-to-Synth Preset Generator",
-    tag: "ML • Python • FastAPI • Next.js • 2026",
+    tag: "ML • Python • RAG • FastAPI • 2026",
     github: "https://github.com/LuizCauet/Resonance",
     linkText: "GitHub",
     contentBlocks: [
-      "Resonance is a multimodal machine learning pipeline that bridges natural language and synthesizer sound design. Using CLAP audio-text embeddings and vector similarity search, it maps creative prompts like 'warm vintage analog' to matching synthesizer presets in real-time.",
-      "The system experiments with LLM-driven iterative fine-tuning, allowing users to refine presets through conversational feedback. This creates a dynamic loop where users can describe the sound they want and iteratively adjust it through natural language.",
+      "Resonance is a multimodal retrieval-augmented generation (RAG) pipeline that bridges natural language and synthesizer sound design. Using CLAP audio-text embeddings, vector similarity search, and LLM-guided preset refinement, it maps creative prompts like 'warm vintage analog' to matching synthesizer presets in real-time.",
+      "The system experiments with LLM-driven iterative preset parameter refinement using natural language feedback. This creates a dynamic loop where users can describe the sound they want and iteratively adjust it through natural language.",
       "The backend leverages Python + FastAPI with containerized ML workflows deployed on Oracle Cloud VM. The architecture handles embedding generation, vector similarity search, and preset manipulation in a scalable pipeline designed for real-time performance.",
       "The frontend provides an intuitive Next.js interface for semantic search and interactive preset editing. Work on a DAW plugin is ongoing."
     ],
@@ -62,8 +62,8 @@ const projects = {
     linkText: "itch.io",
     contentBlocks: [
       "The Audition is a multidisciplinary game project where performance, AI, and gameplay systems come together. My work centers on the technical and ML side of the project, with a focus on evaluating how player performance can be measured and used in gameplay.",
-      "I lead a 13-member multidisciplinary team while serving as the project's lead software engineer. That includes coordinating work across design, art, audio, and engineering so the game ships as a cohesive experience.",
-      "I designed, trained, and evaluated a PyTorch model to classify guitar solo quality, achieving Spearman rank correlation of 0.848 against human-derived Elo scores. I also architect and implement gameplay systems, AI behaviors, and core infrastructure in Godot.",
+      "I lead software development while coordinating a 13-member multidisciplinary team. That includes coordinating work across design, art, audio, and engineering so the game ships as a cohesive experience.",
+      "I designed, trained, and evaluated a PyTorch model to classify guitar solo quality, achieving 85% agreement with human rankings using Spearman rank correlation. I also architect and implement software systems, AI behaviors, and core game infrastructure in Godot.",
       "The result is a game built around real technical systems rather than placeholder mechanics: model-driven evaluation, gameplay logic, and production-ready engineering decisions that support the broader creative vision."
     ],
     images: [
@@ -114,8 +114,8 @@ const projectCards: Record<string, string> = {
   resonance: `<article class="project-card" tabindex="0" role="link" onclick="window.location.hash='#project/resonance'">
               <img loading="lazy" src="/assets/Resonance/Resonance_Landing.png" alt="Resonance Landing" />
               <div class="project-overlay">
-                <p class="project-subtitle">Resonance — semantic sound search</p>
-                <p class="project-summary">A multimodal search pipeline mapping natural-language prompts to synthesizer presets with CLAP embeddings and vector similarity search.</p><p class="project-tech">Python · FastAPI · CLAP · Docker · Oracle Cloud</p>
+                <p class="project-subtitle">Resonance — Semantic Preset Retrieval</p>
+                <p class="project-summary">A multimodal RAG pipeline mapping natural-language prompts to synthesizer presets with CLAP embeddings, vector similarity search, and LLM-guided refinement.</p><p class="project-tech">Python · FastAPI · CLAP · Docker · Oracle Cloud</p>
               </div>
             </article>`,
   expression: `<article class="project-card" tabindex="0" role="link" onclick="window.location.hash='#project/expression'">
@@ -129,14 +129,14 @@ const projectCards: Record<string, string> = {
               <img loading="lazy" src="/assets/SmartQueue/Landing.png" alt="SmartQueue Landing" />
               <div class="project-overlay">
                 <p class="project-subtitle">SmartQueue — adaptive recommendations</p>
-                <p class="project-summary">Weighted recommendations backed by persistent listening preferences, authentication, and row-level access policies.</p><p class="project-tech">TypeScript · Next.js · PostgreSQL · Spotify SDK</p>
+                <p class="project-summary">Weighted recommendations backed by persistent queue state, authentication, and row-level access policies.</p><p class="project-tech">TypeScript · Next.js · PostgreSQL · Spotify SDK</p>
               </div>
             </article>`,
   audition: `<article class="project-card featured" tabindex="0" role="link" onclick="window.location.hash='#project/audition'">
               <img loading="lazy" src="/assets/The Audition/Main Screen.png" alt="The Audition Title Screen" />
               <div class="project-overlay">
                 <p class="project-subtitle">The Audition — applied ML &amp; game systems</p>
-                <p class="project-summary">Guitar-performance model development and gameplay infrastructure, with engineering leadership across a 13-person team.</p><p class="project-tech">Python · PyTorch · Godot · Model evaluation</p>
+                <p class="project-summary">Guitar-performance model development and software infrastructure, with engineering leadership across a 13-person team.</p><p class="project-tech">Python · PyTorch · Godot · Model evaluation</p>
               </div>
             </article>`,
 };
@@ -218,10 +218,10 @@ function renderHomePage() {
                 <h3>AI & Robotics Instructor · Integem Inc.</h3>
                 <p>Fremont, California</p>
                 <ul>
-                  <li>Taught robotics, computer vision, and generative AI concepts to students ages 10–17.</li>
-                  <li>Guided students through the complete YOLOv5 training pipeline, including dataset creation, annotation, training, evaluation, and hyperparameter tuning.</li>
-                  <li>Taught students to deploy pretrained vision models for robotic object detection and manipulation workflows.</li>
-                  <li>Mentored students through NVIDIA's Generative AI curriculum, introducing diffusion models and practical machine learning concepts.</li>
+                  <li>Taught robotics, computer vision, and generative AI to students ages 10–17.</li>
+                  <li>Guided students through YOLOv5 dataset creation, annotation, training, evaluation, and hyperparameter tuning.</li>
+                  <li>Taught deployment of pretrained vision models for robotic object detection and manipulation.</li>
+                  <li>Mentored students through NVIDIA's Generative AI curriculum, covering diffusion models and applied ML.</li>
                 </ul>
               </div>
             </article>
@@ -234,9 +234,9 @@ function renderHomePage() {
                 <h3>Lead AI & Software Engineer · The Audition</h3>
                 <p>Santa Cruz, California</p>
                 <ul>
-                  <li>Leading a 13-member multidisciplinary team while serving as the project's lead software engineer.</li>
-                  <li>Designed, trained, and evaluated a PyTorch model to classify guitar solo quality, achieving Spearman rank correlation of 0.848 against human-derived Elo scores.</li>
-                  <li>Architecting and implementing gameplay systems, AI behaviors, and core game infrastructure in Godot.</li>
+                  <li>Leading software development while coordinating a 13-member multidisciplinary team.</li>
+                  <li>Designed, trained, and evaluated a PyTorch model to classify guitar solo quality, achieving 85% agreement with human rankings using Spearman rank correlation.</li>
+                  <li>Architecting and implementing software systems, AI behaviors, and core game infrastructure in Godot.</li>
                 </ul>
               </div>
             </article>
@@ -249,8 +249,8 @@ function renderHomePage() {
                 <h3>Research Participant (Advisor: Dr. Jim Whitehead) · Augmented Design Lab</h3>
                 <p>Santa Cruz, California</p>
                 <ul>
-                  <li>Developed PCG prototypes using LLMs, Wave Function Collapse, and Z3 constraint solving.</li>
-                  <li>Implemented grid-based world generation systems and constraint-driven content pipelines.</li>
+                  <li>Developed procedural generation prototypes using LLMs (LangChain), Wave Function Collapse, and Z3 constraint solving.</li>
+                  <li>Implemented constraint-driven content pipelines and grid-based generation systems.</li>
                   <li>Analyzed and applied technical research in procedural generation and game systems.</li>
                 </ul>
               </div>
@@ -265,7 +265,7 @@ function renderHomePage() {
                 <p>Founded and led a 100+ member interdisciplinary music and tech collective at UCSC.</p>
                 <ul>
                   <li>Secured $1,500 in funding through technical project proposals and organizational leadership.</li>
-                  <li>Directed collaborative production of a 12-track multi-contributor digital release.</li>
+                  <li>Directed production of a 12-track digital release with 20+ contributors.</li>
                   <li>Built the club’s deployed community app, with shared-taste discovery, private messaging, and QR-based music production groups.</li>
                 </ul>
               </div>
@@ -281,19 +281,19 @@ function renderHomePage() {
             <div class="skill-group">
               <h4>Languages</h4>
               <div class="chips">
-                <span>Python</span><span>C/C++</span><span>TypeScript</span><span>SQL</span><span>Java</span>
+                <span>Python</span><span>C/C++</span><span>TypeScript</span><span>SQL</span><span>Java</span><span>Assembly</span>
               </div>
             </div>
             <div class="skill-group">
               <h4>AI / ML</h4>
               <div class="chips">
-                <span>PyTorch</span><span>CUDA</span><span>NumPy</span><span>SciPy</span><span>FastAPI</span>
+                <span>PyTorch</span><span>TensorFlow/Keras</span><span>CUDA</span><span>NumPy</span><span>SciPy</span><span>scikit-learn</span>
               </div>
             </div>
             <div class="skill-group">
               <h4>Infrastructure</h4>
               <div class="chips">
-                <span>Linux</span><span>Docker</span><span>PostgreSQL</span><span>AWS</span><span>Supabase</span><span>Wireshark</span>
+                <span>Linux</span><span>Docker</span><span>PostgreSQL</span><span>FastAPI</span><span>AWS</span><span>Supabase</span><span>Wireshark</span>
               </div>
             </div>
           </div>
@@ -312,8 +312,7 @@ function renderHomePage() {
             <div class="coursework">
               <h4>Relevant Coursework</h4>
               <p>
-                Machine Learning, Data Structures & Algorithms, Networks, Systems Design, Computer Architecture, Software Engineering,
-                Organization, Game AI
+                Machine Learning, Data Structures & Algorithms, Networks, Systems Design, Computer Architecture, Software Engineering
               </p>
             </div>
           </div>
