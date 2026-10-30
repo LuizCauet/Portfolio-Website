@@ -27,7 +27,6 @@ const projects = {
     linkText: "GitHub",
     contentBlocks: [
       "Resonance is a multimodal retrieval-augmented generation (RAG) pipeline that bridges natural language and synthesizer sound design. Using CLAP audio-text embeddings, vector similarity search, and LLM-guided preset refinement, it maps creative prompts like 'warm vintage analog' to matching synthesizer presets in real-time.",
-      "Reduced preset discovery time by 60x, from 60+ seconds of manual browsing to ~1 second per query, by building a CLAP-embedding vector-similarity search pipeline.",
       "The system experiments with LLM-driven iterative preset parameter refinement using natural language feedback. This creates a dynamic loop where users can describe the sound they want and iteratively adjust it through natural language.",
       "The backend leverages Python + FastAPI with containerized ML workflows deployed on Oracle Cloud VM. The architecture handles embedding generation, vector similarity search, and preset manipulation in a scalable pipeline designed for real-time performance.",
       "The frontend provides an intuitive Next.js interface for semantic search and interactive preset editing. Work on a DAW plugin is ongoing."
@@ -519,7 +518,7 @@ const engineeringStudies = {
         "Docker packages the ML workflow for the cloud VM. Packaging the workflow keeps its dependencies together across development and deployment."
       ]
     ],
-    "results": "The application connects natural-language prompts to preset search and provides browsing and editing interfaces. Conversational refinement is experimental. The next stage is to quantify retrieval relevance and query latency.",
+    "results": "Reduced preset discovery time by 60x, from 60+ seconds of manual browsing to ~1 second per query, by building a CLAP-embedding vector-similarity search pipeline. The application connects natural-language prompts to preset search and provides browsing and editing interfaces. Conversational refinement is experimental. The next stage is to quantify retrieval relevance.",
     "next": "DAW plugin packaging is ongoing. Next evaluations could measure top-k relevance and end-to-end latency against a fixed set of sound descriptions."
   },
   "smartqueue": {
