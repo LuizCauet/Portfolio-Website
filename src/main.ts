@@ -23,7 +23,7 @@ const projects = {
     title: "Resonance",
     subtitle: "Text-to-Synth Preset Generator",
     tag: "ML • Python • RAG • FastAPI • 2026",
-    github: "https://github.com/LuizCauet/Resonance",
+    github: "https://github.com/andrewweckwerth/Resonance",
     linkText: "GitHub",
     contentBlocks: [
       "Resonance is a multimodal retrieval-augmented generation (RAG) pipeline that bridges natural language and synthesizer sound design. Using CLAP audio-text embeddings, vector similarity search, and LLM-guided preset refinement, it maps creative prompts like 'warm vintage analog' to matching synthesizer presets in real-time.",
