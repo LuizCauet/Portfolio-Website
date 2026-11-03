@@ -26,7 +26,7 @@ const projects = {
     github: "https://github.com/andrewweckwerth/Resonance",
     linkText: "GitHub",
     contentBlocks: [
-      "Resonance is a multimodal retrieval-augmented generation (RAG) pipeline that bridges natural language and synthesizer sound design. Using CLAP audio-text embeddings, vector similarity search, and LLM-guided preset refinement, it maps creative prompts like 'warm vintage analog' to matching synthesizer presets in real-time.",
+      "Resonance is a multimodal retrieval-augmented generation (RAG) pipeline that bridges natural language and synthesizer sound design. Using CLAP audio-text embeddings from Hugging Face models, vector similarity search, and LLM-guided preset refinement, it maps creative prompts like 'warm vintage analog' to matching synthesizer presets in real-time.",
       "The system experiments with LLM-driven iterative preset parameter refinement using natural language feedback. This creates a dynamic loop where users can describe the sound they want and iteratively adjust it through natural language.",
       "The backend leverages Python + FastAPI with containerized ML workflows deployed on Oracle Cloud VM. The architecture handles embedding generation, vector similarity search, and preset manipulation in a scalable pipeline designed for real-time performance.",
       "The frontend provides an intuitive Next.js interface for semantic search and interactive preset editing. Work on a DAW plugin is ongoing."
@@ -288,7 +288,7 @@ function renderHomePage() {
             <div class="skill-group">
               <h4>AI / ML</h4>
               <div class="chips">
-                <span>PyTorch</span><span>TensorFlow/Keras</span><span>CUDA</span><span>NumPy</span><span>SciPy</span><span>scikit-learn</span>
+                <span>PyTorch</span><span>TensorFlow/Keras</span><span>CUDA</span><span>NumPy</span><span>SciPy</span><span>scikit-learn</span><span>Hugging Face</span><span>Model Inference</span><span>Model Optimization</span>
               </div>
             </div>
             <div class="skill-group">
