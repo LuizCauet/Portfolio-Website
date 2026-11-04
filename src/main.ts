@@ -57,7 +57,7 @@ const projects = {
   audition: {
     title: "The Audition",
     subtitle: "3D Psych-Horror Musical Game",
-    tag: "Lead AI & Software Engineer • Godot • PyTorch • 2025-Current",
+    tag: "Lead Machine Learning & Software Engineer • Godot • PyTorch • 2025-Current",
     github: "https://bhranthrok.itch.io/the-audition-v0",
     linkText: "itch.io",
     contentBlocks: [
@@ -215,7 +215,7 @@ function renderHomePage() {
               </div>
               <div class="timeline-date">Sep 2025 — Current</div>
               <div class="timeline-content">
-                <h3>Lead AI & Software Engineer · The Audition</h3>
+                <h3>Lead Machine Learning & Software Engineer · The Audition</h3>
                 <p>Santa Cruz, California</p>
                 <ul>
                   <li>Classified guitar solo quality, achieving 85% agreement with human rankings by designing and training a PyTorch Convolutional Neural Network model.</li>
@@ -231,12 +231,12 @@ function renderHomePage() {
               </div>
               <div class="timeline-date">Jan 2026 — Mar 2026</div>
               <div class="timeline-content">
-                <h3>Research Participant (Advisor: Dr. Jim Whitehead) · Augmented Design Lab</h3>
+                <h3>AI/ML Research Participant (Advisor: Dr. Jim Whitehead) · Augmented Design Lab</h3>
                 <p>Santa Cruz, California</p>
                 <ul>
-                  <li>Built a reusable Skills feature for the Layered-Selection-Prompting research project, condensing a multi-prompt assisted-design workflow into a single prompt.</li>
+                  <li>Built a reusable Skills feature for the Layered-Selection-Prompting research project, optimizing multi-prompt assisted-design workflow by 10x.</li>
                   <li>Developed 4 procedural generation prototypes using LLMs (LangChain), Wave Function Collapse, and Z3 constraint solving.</li>
-                  <li>Built a Z3 constraint solver for tile-based map generation that guarantees connected floor layouts and entrance-to-exit paths.</li>
+                  <li>Built a Z3 constraint solver for tile-based map generation, guaranteeing 100% connected layouts and entrance-to-exit paths.</li>
                 </ul>
               </div>
             </article>
@@ -246,12 +246,12 @@ function renderHomePage() {
               </div>
               <div class="timeline-date">Jun 2026 — Jul 2026</div>
               <div class="timeline-content">
-                <h3>AI & Robotics Instructor · Integem Inc.</h3>
+                <h3>AI & Engineering Instructor · Integem Inc.</h3>
                 <p>Fremont, California</p>
                 <ul>
                   <li>Taught robotics, computer vision, and generative AI to students ages 10–17.</li>
                   <li>Guided 100+ students ages 10–17 through end-to-end YOLOv5 pipelines — dataset creation, annotation, training, tuning — to deployed vision models for robotic object detection and manipulation.</li>
-                  <li>Mentored students through NVIDIA's Generative AI curriculum, covering diffusion models and applied ML.</li>
+                  <li>Mentored students through NVIDIA's Generative AI curriculum, covering diffusion models and applied Machine Learning.</li>
                 </ul>
               </div>
             </article>
